@@ -25,4 +25,18 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+
+    public function store(Request $request)
+    {
+        $rules = [
+            'name' => 'required|string',
+            'image' => 'required|image',
+        ];
+        $messages = [
+            'name.required' => 'حقل الاسم مطلوب.',
+            'image.required' => 'حقل الصورة مطلوب.',
+        ];
+        $this->validate($request, $rules, $messages);
+    }
 }
