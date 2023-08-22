@@ -22,6 +22,7 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
 
+
 //Route::get('/technical-support', [SupportController::class, 'technicalSupport'])->name('technical_support');
 //Route::get('/other-page', [EmployeeController::class, 'otherPage'])->name('other_page');
 
