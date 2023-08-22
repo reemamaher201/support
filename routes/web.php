@@ -15,14 +15,14 @@ use App\Http\Controllers\HomeController;
 */
 
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('welcome');
-})->middleware('auth');
+});
 
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
 
 //Route::get('/technical-support', [SupportController::class, 'technicalSupport'])->name('technical_support');
