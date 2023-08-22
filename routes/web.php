@@ -23,3 +23,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+//Route::get('/technical-support', [SupportController::class, 'technicalSupport'])->name('technical_support');
+//Route::get('/other-page', [EmployeeController::class, 'otherPage'])->name('other_page');
+

@@ -14,7 +14,7 @@ return [
     */
 
     'failed' => 'هذه البيانات لا تتطابق مع سجلاتنا.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'password' => 'كلمة المرور المدخلة غير صحيحة.',
+    'throttle' => 'عدد محاولات تسجيل الدخول كثيرة جدًا. يرجى المحاولة مرة أخرى بعد',
 
 ];

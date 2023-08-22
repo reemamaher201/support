@@ -17,11 +17,10 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $primaryKey = 'emp_id';
+    public $incrementing = false;
+    protected $fillable = ['emp_id','emp_name','email','parent_unit', 'emp_no','password', 'isActive'];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -42,4 +41,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function parentUnit()
+    {
+        return $this->belongsTo(Structure::class, 'parent_unit', 'unit_id');
+    }
 }

@@ -35,7 +35,7 @@
         <div class="wrap-login100">
             <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
                 @csrf
-					<span class="login100-form-logo">
+                <span class="login100-form-logo">
 						<img src="{{asset('site/images/mof.jpeg')}}" height="120px" width="120px" style="border-radius: 50%">
 					</span>
 
@@ -43,15 +43,15 @@
 						تسجيل دخول
 					</span>
 
-                    <div class="wrap-input100 validate-input">
-                        <input id="email" type="email" placeholder="الايميل" class="input100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                        <span class="focus-input100" data-placeholder="&#xf207;"></span>
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
+                <div class="wrap-input100 validate-input">
+                    <input id="email" type="email" placeholder="الايميل" class="input100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
-                    </div>
+                    @enderror
+                </div>
 
 
                 <div class="wrap-input100 validate-input" data-validate = "Enter username">
