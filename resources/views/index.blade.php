@@ -387,7 +387,9 @@
                                                  alt="circle-image" />
                                             <h4 class="font-weight-normal mb-3">عدد طلباتي
                                             </h4>
-                                            <h2 class="mb-5">  {{$totalRequests }}</h2>
+                                            <h2 class="mb-5">  @isset($totalRequests)
+                                                {{$totalRequests }}
+                                            @endisset</h2>
 
                                         </div>
                                     </div>
