@@ -387,8 +387,8 @@
                                                  alt="circle-image" />
                                             <h4 class="font-weight-normal mb-3">عدد طلباتي
                                             </h4>
-                                            <h2 class="mb-5"></h2>
-                                            {{$totalRequests }}
+                                            <h2 class="mb-5">  {{$totalRequests }}</h2>
+
                                         </div>
                                     </div>
                                 </div>
