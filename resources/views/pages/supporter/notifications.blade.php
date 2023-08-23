@@ -47,12 +47,12 @@
                                                     <!-- محتوى البطاقة لكل طلب -->
                                                     <div class="card-header {{ $randomColor }} ">{{ $notification->subject }}</div>
                                                     <div class="card-body">
-                                                        <p>{{ $notification->message }}</p>
+                                                        <p>{{ $notification->message }}</p></a>
                                                         <button class="btn  btn-danger mt-4">رفض </button>
                                                         <button class= "btn  btn-success mt-4">قبول </button>                                                    </div>
                                                 </div>
 
-                                            </div> </a>
+                                            </div>
                                         @endforeach
                                     </div>
                                 </div>
