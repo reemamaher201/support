@@ -23,8 +23,8 @@
 
                     </div>
                     <div class="row">
-                        <table class="table table-bordered mt-3">
-                            <thead>
+                        <table class="table table-bordered mt-3" >
+                            <thead class="thead-dark">
                             <tr>
                                 <th>عنوان المشكلة</th>
                                 <th>وصف المشكلة</th>
