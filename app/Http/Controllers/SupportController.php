@@ -13,11 +13,14 @@ class SupportController extends Controller
         return view('pages.employees.maintenanceRequest');
     }
 
+
     public function showSupportRequests()
     {
         $supportRequests = SupportRequest::all();
-        return view('pages.employees.show', ['supportRequests' => $supportRequests]);
+        $totalRequests = count($supportRequests);
+        return view('pages.employees.show', ['supportRequests' => $supportRequests, 'totalRequests' => $totalRequests]);
     }
+
 
     public function submitSupportRequest(Request $request)
     {

@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="rtl nav-item nav-profile">
-            <a href="#" class=" rtl nav-link">
+            <a href="{{route('home')}}" class=" rtl nav-link">
                 <div class="rtl nav-profile-image">
                     <img src="{{asset('site/images/faces/face1.jpg')}}" alt="profile">
                     <span class="login-status online"></span>
