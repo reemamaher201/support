@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\SupportRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class SupportController extends Controller
 {
-
-    public function showFormRequest(){
+    public function showFormRequest()
+    {
         return view('pages.employees.maintenanceRequest');
     }
+
     public function showSupportRequests()
     {
         $supportRequests = SupportRequest::all();
@@ -30,8 +32,8 @@ class SupportController extends Controller
         $attachments = [];
         if ($request->hasFile('attachments')) {
             foreach ($request->file('attachments') as $attachment) {
-                $filename = time() . '_' . $attachment->getClientOriginalName();
-                $attachment->storeAs('attachments', $filename);
+                $filename = Str::random(20) . '.' . $attachment->getClientOriginalExtension();
+                $attachment->storeAs('public/attachments', $filename);
                 $attachments[] = $filename;
             }
         }
@@ -62,7 +64,6 @@ class SupportController extends Controller
             'issue_description' => $request->input('issue_description'),
             'requester_name' => $request->input('requester_name'),
             'office_location' => $request->input('office_location'),
-
         ]);
 
         return redirect()->route('requests')->with('success', 'تم تحديث البيانات بنجاح');
