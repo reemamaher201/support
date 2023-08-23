@@ -44,8 +44,9 @@
                                     <td>{{ $request->office_location }}</td>
                                     <td>
                                         @foreach(json_decode($request->attachments) as $attachment)
-                                            <img src="{{ asset('attachments/' . $attachment) }}" alt="Attachment" class="img-thumbnail">
+                                            <img src="{{ asset('storage/attachments/' . $attachment) }}" alt="Attachment" class="img-thumbnail">
                                         @endforeach
+
                                     </td>
                                     <td>
                                         <a href="{{ route('support.edit', ['id' => $request->id]) }}" class="btn btn-dark">تعديل</a>
