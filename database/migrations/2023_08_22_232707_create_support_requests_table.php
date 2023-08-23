@@ -13,13 +13,17 @@ return new class extends Migration
     {
         Schema::create('support_requests', function (Blueprint $table) {
         $table->id();
+        $table->integer('employee_id');
         $table->string('issue_title');
         $table->text('issue_description');
         $table->string('requester_name');
         $table->string('office_location');
         $table->json('attachments')->nullable();
         $table->timestamps();
-    });
+
+            $table->foreign('employee_id')->references('emp_id')->on('users')->onDelete('cascade');
+
+        });
     }
 
     /**

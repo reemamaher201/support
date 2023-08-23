@@ -24,14 +24,14 @@
         <li class="rtl nav-item">
             <a class="nav-link" href="{{route('notification')}}">
                 <i class="mdi mdi-contacts menu-icon"></i>
-                <span class="menu-title">الطلبات</span>
+                <span class="menu-title">الطلبات الواردة</span>
 
             </a>
         </li>
         <li class="rtl nav-item">
             <a class="nav-link" href="pages/forms/basic_elements.html">
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-                <span class="menu-title">Forms</span>
+                <span class="menu-title">الطلبات المقبولة</span>
 
             </a>
         </li>

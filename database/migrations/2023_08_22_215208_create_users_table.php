@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            $table->foreign('parent_unit')->references('unit_id')->on('structure');
+            $table->foreign('parent_unit')->references('unit_id')->on('structure')->onDelete('cascade');
 
         });
     }

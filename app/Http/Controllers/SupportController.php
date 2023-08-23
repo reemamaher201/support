@@ -22,10 +22,13 @@ class SupportController extends Controller
 
     public function showSupportRequests()
     {
-        $supportRequests = SupportRequest::all();
+        $employeeId = Auth::user()->emp_id;
+        $supportRequests = SupportRequest::where('employee_id', $employeeId)->get();
         $totalRequests = count($supportRequests);
+
         return view('pages.employees.show', ['supportRequests' => $supportRequests, 'totalRequests' => $totalRequests]);
     }
+
 
 
     public function submitSupportRequest(Request $request)
@@ -48,6 +51,7 @@ class SupportController extends Controller
         }
 
         $supportRequest = new SupportRequest();
+        $supportRequest->employee_id=Auth::user()->emp_id;
         $supportRequest->issue_title = $validatedData['issue_title'];
         $supportRequest->issue_description = $validatedData['issue_description'];
         $supportRequest->requester_name = $validatedData['requester_name'];
@@ -58,8 +62,8 @@ class SupportController extends Controller
             // إنشاء إشعار
             $notification = new Notification();
             $notification->employee_id = Auth::user()->emp_id; // تخزين معرف الموظف
-            $notification->subject = 'تم تقديم طلب صيانة جديد من '.Auth::user()->emp_name;
-            $notification->message = 'لقد تم تقديم طلب صيانة جديد. يرجى اتخاذ الإجراء اللازم.';
+            $notification->subject = ' طلب صيانة جديد بعنوان:  '. $supportRequest->issue_title .' من المهندس: '.Auth::user()->emp_name;
+            $notification->message =   'وصف الطلب: ' . $supportRequest->issue_description ;
             $notification->save();
 
 

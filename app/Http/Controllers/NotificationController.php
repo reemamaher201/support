@@ -19,6 +19,6 @@ class NotificationController extends Controller
         $notification = Notification::findOrFail($id);
 
         // عرض صفحة تفاصيل الإشعار وتمرير الإشعار كمتغير إلى العرض
-        return view('pages/supporter/notifications', ['notification' => $notification]);
+        return view('pages/supporter/notDetails', ['notification' => $notification]);
     }
 }
