@@ -54,10 +54,6 @@
                 </div>
 
 
-                <div class="wrap-input100 validate-input" data-validate = "Enter username">
-                    <input class="input100" type="text" name="emp_id" placeholder="رقم الهوية">
-                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
-                </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Enter password">
                     <input class="input100 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" type="password"  placeholder="كلمة المرور ">

@@ -13928,7 +13928,8 @@ dl {
       .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile .nav-link .nav-profile-img {
         position: relative;
         width: 32px;
-        height: 32px; }
+        height: 32px;
+      padding-left: 45px}
         .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile .nav-link .nav-profile-img img {
           width: 32px;
           height: 32px;

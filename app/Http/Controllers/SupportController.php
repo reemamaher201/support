@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use App\Models\SupportRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class SupportController extends Controller
 {
+
+
+
+
     public function showFormRequest()
     {
         return view('pages.employees.maintenanceRequest');
@@ -48,6 +54,14 @@ class SupportController extends Controller
         $supportRequest->office_location = $validatedData['office_location'];
         $supportRequest->attachments = json_encode($attachments);
         $supportRequest->save();
+
+            // إنشاء إشعار
+            $notification = new Notification();
+            $notification->employee_id = Auth::user()->emp_id; // تخزين معرف الموظف
+            $notification->subject = 'تم تقديم طلب صيانة جديد من '.Auth::user()->emp_name;
+            $notification->message = 'لقد تم تقديم طلب صيانة جديد. يرجى اتخاذ الإجراء اللازم.';
+            $notification->save();
+
 
         return redirect()->route('requests');
     }

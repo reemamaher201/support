@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,8 +25,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        if (Auth::user()->parent_unit == 1){
+            // استرداد جميع الإشعارات
+            $notifications = Notification::all();
+
+            // تمرير الإشعارات إلى العرض
+            return view('index', ['notifications' => $notifications]);
+        }
+        else{
+            return view('index');
+        }
     }
+
 
 
     public function store(Request $request)

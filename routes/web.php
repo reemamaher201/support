@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\SupportController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -21,7 +23,6 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
-use App\Http\Controllers\SupportController;
 Route::get('/showForm', [SupportController::class, 'showFormRequest'])->name('showForm');
 
 
@@ -33,5 +34,10 @@ Route::get('/support-requests/{id}/edit', [SupportController::class, 'edit'])->n
 Route::put('/support-requests/{id}', [SupportController::class, 'update'])->name('support.update');
 
 Route::get('/support-requests/{id}/delete', [SupportController::class, 'delete'])->name('support.delete');
+
+Route::get('/notification', [NotificationController::class, 'notification'])->name('notification');
+
+Route::get('/notification/{id}', [NotificationController::class, 'show'])->name('notification.show');
+
 
 

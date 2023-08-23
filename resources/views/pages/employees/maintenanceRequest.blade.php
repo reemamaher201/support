@@ -46,8 +46,7 @@
                                 <input type="file" id="attachments" class="form-control" name="attachments[]" multiple
                                        accept="image/*"></div>
 
-                            <button type="submit" class="btn btn-block btn-lg btn-gradient-warning mt-4">Submit
-                                Request
+                            <button type="submit" class="btn btn-block btn-lg btn-gradient-warning mt-4">تقديم الطلب
                             </button>
                         </form>
                     </div>
