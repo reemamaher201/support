@@ -21,8 +21,17 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
+use App\Http\Controllers\SupportController;
+Route::get('/showForm', [SupportController::class, 'showFormRequest'])->name('showForm');
 
 
-//Route::get('/technical-support', [SupportController::class, 'technicalSupport'])->name('technical_support');
-//Route::get('/other-page', [EmployeeController::class, 'otherPage'])->name('other_page');
+Route::get('/requests', [SupportController::class, 'showSupportRequests'])->name('requests');
+Route::post('/submit', [SupportController::class, 'submitSupportRequest'])->name('submit');
+
+// صفحة تعديل الطلب
+Route::get('/support-requests/{id}/edit', [SupportController::class, 'edit'])->name('support.edit');
+Route::put('/support-requests/{id}', [SupportController::class, 'update'])->name('support.update');
+
+Route::get('/support-requests/{id}/delete', [SupportController::class, 'delete'])->name('support.delete');
+
 

@@ -23,21 +23,21 @@
         <li class="rtl nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="mdi mdi-crosshairs-gps menu-icon"></i>
-                <span class="menu-title">Basic UI Elements22</span>
+                <span class="menu-title">الطلبات المرسلة</span>
                 <i class="menu-arrow"></i>
 
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="rtl nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
+                    <li class="rtl nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html"></a></li>
                     <li class="rtl nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
                 </ul>
             </div>
         </li>
         <li class="rtl nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="{{route('showForm')}}">
                 <i class="mdi mdi-contacts menu-icon"></i>
-                <span class="menu-title">Icons</span>
+                <span class="menu-title">طلب صيانة</span>
 
             </a>
         </li>
