@@ -9,11 +9,12 @@ class Notification extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['employee_id', 'subject', 'message'];
+    protected $fillable = ['employee_id', 'subject', 'message', 'status'];
 
+    // تعريف العلاقة مع جدول الموظفين
     public function employee()
     {
-        return $this->belongsTo(User::class, 'employee_id');
+        return $this->belongsTo(User::class, 'employee_id', 'emp_id');
     }
 
 }

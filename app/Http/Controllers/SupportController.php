@@ -63,7 +63,7 @@ class SupportController extends Controller
             $notification = new Notification();
             $notification->employee_id = Auth::user()->emp_id; // تخزين معرف الموظف
             $notification->subject = ' طلب صيانة جديد بعنوان:  '. $supportRequest->issue_title .' من المهندس: '.Auth::user()->emp_name;
-            $notification->message =   'وصف الطلب: ' . $supportRequest->issue_description ;
+            $notification->message = $supportRequest->issue_description ;
             $notification->save();
 
 

@@ -27,7 +27,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="issue_title">عنوان المشكلة</label>
-                                <input type="text" class="form-control" id="issue_title" name="issue_title" required>
+                                <input type="text" class="form-control " id="issue_title" name="issue_title" required>
                             </div>
                             <div class="form-group">
                                 <label for="issue_description">وصف المشكلة</label>
