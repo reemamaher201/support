@@ -29,15 +29,19 @@ Route::get('/showForm', [SupportController::class, 'showFormRequest'])->name('sh
 Route::get('/requests', [SupportController::class, 'showSupportRequests'])->name('requests');
 Route::post('/submit', [SupportController::class, 'submitSupportRequest'])->name('submit');
 
-// صفحة تعديل الطلب
+
 Route::get('/support-requests/{id}/edit', [SupportController::class, 'edit'])->name('support.edit');
 Route::put('/support-requests/{id}', [SupportController::class, 'update'])->name('support.update');
-
 Route::get('/support-requests/{id}/delete', [SupportController::class, 'delete'])->name('support.delete');
 
-Route::get('/notification', [NotificationController::class, 'notification'])->name('notification');
 
+Route::get('/notification', [NotificationController::class, 'notification'])->name('notification');
 Route::get('/notification/{id}', [NotificationController::class, 'show'])->name('notification.show');
+Route::get('/reject-notification/{id}', [NotificationController::class,'showRejected'])->name('reject.notification');
+Route::get('/reject-notification', [NotificationController::class,'showRejectedPage'])->name('reject.show');
+Route::get('/accept-notification/{id}', [NotificationController::class,'showAccepted'])->name('accept.notification');
+Route::get('/accept-notification', [NotificationController::class,'showAcceptedPage'])->name('accept.show');
+
 
 
 

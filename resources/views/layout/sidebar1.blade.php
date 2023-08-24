@@ -29,27 +29,21 @@
             </a>
         </li>
         <li class="rtl nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
+            <a class="nav-link" href="{{route('accept.show')}}">
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                 <span class="menu-title">الطلبات المقبولة</span>
 
             </a>
         </li>
+
+
         <li class="rtl nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
-                <i class="mdi mdi-chart-bar menu-icon"></i>
-                <span class="menu-title">Charts</span>
+            <a class="nav-link" href="{{route('reject.show')}}">
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                <span class="menu-title">الطلبات المرفوضة</span>
 
             </a>
         </li>
-        <li class="rtl nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
-                <i class="mdi mdi-table-large menu-icon"></i>
-                <span class=" menu-title">الجداول</span>
-
-            </a>
-        </li>
-
 
     </ul>
 </nav>

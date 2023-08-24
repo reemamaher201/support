@@ -33,14 +33,23 @@
 
                                     <div class="col-xl mb-4">
                                         <div class="card">
+                                            @php
+                                                $colors = ['bg-gradient-success', 'bg-gradient-warning', 'bg-gradient-danger', 'bg-gradient-info', 'bg-gradient-primary'];
+                                                $randomColor = $colors[rand(0, count($colors) - 1)];
 
-                                                <div class="card-header">{{ $notification->subject }}</div>
+
+                                            @endphp
+
+                                                <div class="card-header {{ $randomColor }}">{{ $notification->subject }}</div>
                                                 <div class="card-body">
                                                     <p>{{ $notification->message }}</p>
+
 
                                                 </div>                                            </div>
                                         </div>
                                     </div>
+
+
 
                                 </div>
                             </div>

@@ -39,21 +39,24 @@
                                         @endphp
 
                                         @foreach($notifications as $notification)
-                                            <a  style=" text-decoration: none; color:#000" href="{{ route('notification.show', ['id' => $notification->id]) }}">
-                                            <div class="col-xl mb-4">
-
-                                                <div class="card">
-
-                                                    <!-- محتوى البطاقة لكل طلب -->
-                                                    <div class="card-header {{ $randomColor }} ">{{ $notification->subject }}</div>
-                                                    <div class="card-body">
-                                                        <p>{{ $notification->message }}</p></a>
-                                                        <button class="btn  btn-danger mt-4">رفض </button>
-                                                        <button class= "btn  btn-success mt-4">قبول </button>                                                    </div>
-                                                </div>
-
-                                            </div>
+                                            @if ($notification->status != 'rejected' && $notification->status != 'accepted')
+                                                <a style="text-decoration: none; color:#000" href="{{ route('notification.show', ['id' => $notification->id]) }}">
+                                                    <div class="col-xl mb-4">
+                                                        <div class="card">
+                                                            <!-- محتوى البطاقة لكل طلب -->
+                                                            <div class="card-header {{ $randomColor }}">{{ $notification->subject }}</div>
+                                                            <div class="card-body">
+                                                                <p>{{ $notification->message }}</p>
+                                                                <!-- زر الرفض -->
+                                                                <a href="{{ route('reject.notification', ['id' => $notification->id]) }}" class="btn btn-danger mt-4">رفض</a>
+                                                                <button class="btn btn-success mt-4">قبول</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            @endif
                                         @endforeach
+
                                     </div>
                                 </div>
                             @else

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('message');
             $table->timestamps();
 
+
             $table->foreign('employee_id')->references('emp_id')->on('users')->onDelete('cascade');
         });
     }
