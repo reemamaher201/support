@@ -39,7 +39,7 @@
 
 
                                         @endphp
-
+@isset($notification)
                                         <div class="card-header {{ $randomColor }}">{{ $notification->subject }}</div>
                                         <div class="card-body">
                                             <p><span
@@ -62,7 +62,7 @@
 
                         </div>
 
-                        <form action="" method="post">
+                        <form action="{{ route('acceptances.store') }}" method="post">
                             @csrf
                             <div class="card">
                                 <div class="card-body">
@@ -71,23 +71,23 @@
                                         <input type="text" class="form-control " id="assigned" name="assigned" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="status">الحالة</label>
+                                        <label for="maintenance_location">مكان الصيانة</label>
                                         <div style="display: flex;
     flex-direction: row;
     gap: 15px;">
                                             <div style=" display: flex;
-    align-items: center;"><label for="status1">خيار 1</label>
-                                                <input type="radio" id="status1" name="status" value="option1" required>
+    align-items: center;"><label for="status1">نفس المكان</label>
+                                                <input type="radio" id="status1" name="maintenance_location" value="نفس المكان" required>
 
                                             </div>
                                             <div style=" display: flex;
-    align-items: center;"><label for="status2">خيار 2</label>
-                                                <input type="radio" id="status2" name="status" value="option2" required>
+    align-items: center;"><label for="status2">الورشة</label>
+                                                <input type="radio" id="status2" name="maintenance_location" value="الورشة" required>
 
                                             </div>
                                             <div style=" display: flex;
-    align-items: center;"> <label for="status3">خيار 3</label>
-                                                <input type="radio" id="status3" name="status" value="option3" required>
+    align-items: center;"> <label for="status3">خارجي</label>
+                                                <input type="radio" id="status3" name="maintenance_location" value="خارجي" required>
 
                                             </div>
                                         </div>
@@ -98,18 +98,55 @@
                                                name="delivery_time" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="receiver">الجهاز المستلم</label>
+                                        <label for="receiver">المستلم</label>
                                         <input type="text" class="form-control" id="receiver" name="receiver" required>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">تسليم</button>
+                                    <div class="form-group">
+                                        <label for="received_device">الجهاز المستلم</label>
+                                        <input type="text" class="form-control" id="received_device" name="received_device" required>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <input type="hidden" class="form-control" id="employee_id" value="{{$notification->employee->emp_id}}" name="employee_id" required>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <input type="hidden" class="form-control" id="problem_id" value="{{$notification->id}}" name="problem_id" required>
+                                    </div>
+                                    <button type="submit" class="btn {{$randomColor}}">تسليم</button>
                                 </div>
                             </div>
                         </form>
 
-
+                        @endisset
                     </div>
 
-
+{{--                    <!-- جدول عرض البيانات -->--}}
+{{--                    <h2>البيانات المخزنة</h2>--}}
+{{--                    <table class="table table-striped">--}}
+{{--                        <thead>--}}
+{{--                        <tr>--}}
+{{--                            <th>#</th>--}}
+{{--                            <th>مكلف بالصيانة</th>--}}
+{{--                            <th>مكان الصيانة</th>--}}
+{{--                            <th>وقت الاستلام</th>--}}
+{{--                            <th>المستلم</th>--}}
+{{--                            <th>الجهاز المستلم</th>--}}
+{{--                        </tr>--}}
+{{--                        </thead>--}}
+{{--                        <tbody>--}}
+{{--                        @foreach($acceptances as $acceptance)--}}
+{{--                            <tr>--}}
+{{--                                <td>{{ $acceptance->id }}</td>--}}
+{{--                                <td>{{ $acceptance->assigned }}</td>--}}
+{{--                                <td>{{ $acceptance->maintenance_location }}</td>--}}
+{{--                                <td>{{ $acceptance->delivery_time }}</td>--}}
+{{--                                <td>{{ $acceptance->receiver }}</td>--}}
+{{--                                <td>{{ $acceptance->received_device }}</td>--}}
+{{--                            </tr>--}}
+{{--                        @endforeach--}}
+{{--                        </tbody>--}}
+{{--                    </table>--}}
                 </div>
 
 

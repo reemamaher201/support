@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AcceptanceController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SupportController;
 use Illuminate\Support\Facades\Auth;
@@ -41,6 +42,12 @@ Route::get('/reject-notification/{id}', [NotificationController::class,'showReje
 Route::get('/reject-notification', [NotificationController::class,'showRejectedPage'])->name('reject.show');
 Route::get('/accept-notification/{id}', [NotificationController::class,'showAccepted'])->name('accept.notification');
 Route::get('/accept-notification', [NotificationController::class,'showAcceptedPage'])->name('accept.show');
+
+
+
+Route::get('/acceptances/notDetails', [AcceptanceController::class,'notDetails'])->name('acceptances.notDetails');
+Route::post('/acceptances', [AcceptanceController::class,'store'])->name('acceptances.store');
+
 
 
 
