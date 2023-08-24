@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Acceptance;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 
@@ -42,10 +43,8 @@ class NotificationController extends Controller
     }
     public function show($id)
     {
-        // استرداد الإشعار باستخدام المعرف المرسل عبر الرابط
         $notification = Notification::findOrFail($id);
-
-        // عرض صفحة تفاصيل الإشعار وتمرير الإشعار كمتغير إلى العرض
-        return view('pages/supporter/notDetails', ['notification' => $notification]);
+        $acceptances = Acceptance::all();
+        return view('pages/supporter/notDetails', compact('notification', 'acceptances'));
     }
 }

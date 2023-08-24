@@ -16,6 +16,7 @@ class AcceptanceController extends Controller
     public function store(Request $request)
     {
         Acceptance::create($request->all());
-        return redirect()->route('acceptances.notDetails');
+        return redirect()->back();
+        // return redirect()->route('acceptances.notDetails');
     }
 }

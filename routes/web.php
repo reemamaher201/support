@@ -40,8 +40,8 @@ Route::get('/notification', [NotificationController::class, 'notification'])->na
 Route::get('/notification/{id}', [NotificationController::class, 'show'])->name('notification.show');
 Route::get('/reject-notification/{id}', [NotificationController::class,'showRejected'])->name('reject.notification');
 Route::get('/reject-notification', [NotificationController::class,'showRejectedPage'])->name('reject.show');
-Route::get('/accept-notification/{id}', [NotificationController::class,'showAccepted'])->name('accept.notification');
 Route::get('/accept-notification', [NotificationController::class,'showAcceptedPage'])->name('accept.show');
+Route::get('/accept-notification/{id}', [NotificationController::class,'showAccepted'])->name('accept.notification');
 
 
 

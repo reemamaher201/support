@@ -42,13 +42,10 @@
                                            href="{{ route('notification.show', ['id' => $notification->id]) }}">
                                             <div class="col-xl mb-4">
                                                 <div class="card">
-                                                    <!-- محتوى البطاقة لكل طلب -->
                                                     <div
                                                         class="card-header {{ $randomColor }}">{{ $notification->subject }}</div>
                                                     <div class="card-body">
                                                         <p>تم قبول الطلب،<button class="btn {{ $randomColor }}"> قم باتخاذ الاجراءات الان</button> </p>
-
-
                                                     </div>
                                                 </div>
                                             </div>
