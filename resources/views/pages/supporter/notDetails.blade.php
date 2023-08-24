@@ -144,7 +144,9 @@
                                 </tr>
                             </thead>
                             <tbody>
+
                                 @foreach ($acceptances as $acceptance)
+                                  @if($acceptance->problem_id == $notification->id  )
                                     <tr>
                                         <td>{{ $acceptance->id }}</td>
                                         <td>{{ $acceptance->assigned }}</td>
@@ -152,7 +154,7 @@
                                         <td>{{ $acceptance->delivery_time }}</td>
                                         <td>{{ $acceptance->receiver }}</td>
                                         <td>{{ $acceptance->received_device }}</td>
-                                    </tr>
+                                    </tr>@endif
                                 @endforeach
                             </tbody>
                         </table>

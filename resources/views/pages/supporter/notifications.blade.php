@@ -49,7 +49,7 @@
                                                                 <p>{{ $notification->message }}</p>
                                                                 <!-- زر الرفض -->
                                                                 <a href="{{ route('reject.notification', ['id' => $notification->id]) }}" class="btn btn-danger mt-4">رفض</a>
-                                                                <button class="btn btn-success mt-4">قبول</button>
+                                                                <a href="{{ route('accept.notification', ['id' => $notification->id]) }}" class="btn btn-success mt-4">قبول</a>
                                                             </div>
                                                         </div>
                                                     </div>

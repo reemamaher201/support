@@ -28,12 +28,13 @@ class NotificationController extends Controller
         $notification->status = 'accepted';
         $notification->save();
 
-        return view('pages/supporter/acceptedNotifications', ['acceptedNotifications' => $notification]);
+        return view('pages/supporter/acceptedNotifications', ['Notifications' => $notification]);
     }
     public function showAcceptedPage()
     {
+        $n = Notification::all();
         $acceptedNotifications = Notification::where('status', 'accepted')->get();
-        return view('pages/supporter/acceptedNotifications', ['acceptedNotifications' => $acceptedNotifications]);
+        return view('pages/supporter/acceptedNotifications',compact('acceptedNotifications','n'));
     }
 
     public function notification(){

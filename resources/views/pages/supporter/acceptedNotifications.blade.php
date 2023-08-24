@@ -19,7 +19,7 @@
                         <h3 class="page-title">
                                 <span class="page-title-icon bg-gradient-warning text-white me-2">
                                     <i class="mdi mdi-bell"></i>
-                                </span> الطلبات المرفوضة
+                                </span> الطلبات المقبولة
                         </h3>
 
 
@@ -38,12 +38,13 @@
                                     @endphp
 
                                     @foreach($acceptedNotifications as $notification)
+
                                         <a style="text-decoration: none; color:#000"
                                            href="{{ route('notification.show', ['id' => $notification->id]) }}">
                                             <div class="col-xl mb-4">
                                                 <div class="card">
                                                     <div
-                                                        class="card-header {{ $randomColor }}">{{ $notification->subject }}</div>
+                                                        class="card-header {{ $randomColor }}">{{$notification->subject}}</div>
                                                     <div class="card-body">
                                                         <p>تم قبول الطلب،<button class="btn {{ $randomColor }}"> قم باتخاذ الاجراءات الان</button> </p>
                                                     </div>
@@ -63,7 +64,7 @@
                                             <!-- محتوى البطاقة لكل طلب -->
                                             <div class="card-header bg-gradient-warning "></div>
                                             <div class="card-body">
-                                                <p>لا يوجد طلبات مروضة بعد</p>
+                                                <p>لا يوجد طلبات مقبولة بعد</p>
                                             </div>
                                         </div>
                                     </div>

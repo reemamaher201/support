@@ -45,7 +45,7 @@
                                                     <div
                                                         class="card-header {{ $randomColor }}">{{ $notification->subject }}</div>
                                                     <div class="card-body">
-                                                        <p>تم رفض الطلب </p>
+                                                        <p>تم رفض الطلب {{ $notification->id }}</p>
 
 
                                                     </div>
