@@ -48,6 +48,9 @@ Route::get('/accept-notification/{id}', [NotificationController::class,'showAcce
 Route::get('/acceptances/notDetails', [AcceptanceController::class,'notDetails'])->name('acceptances.notDetails');
 Route::post('/acceptances', [AcceptanceController::class,'store'])->name('acceptances.store');
 
+Route::post('/notification/{id}/procedures',[AcceptanceController::class,'storeProcedures'])->name('acceptances.storeProcedures');
+Route::get('/notification/{id}/procedures', [AcceptanceController::class,'procedures'])->name('acceptances.procedures');
+
 
 
 
