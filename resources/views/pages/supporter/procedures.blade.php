@@ -12,12 +12,10 @@
             @endif
             <div class=" rtl main-panel">
                 <div class="content-wrapper">
-                    @foreach ($acceptances as $acceptance)
-                        <form action="{{ route('acceptances.storeProcedures', ['id' =>$acceptance->problem_id] )}}"
-                              method="post" style="margin-top: 50px">
 
-                            @endforeach
+                        <form action="{{ route('procedures.store' ,['id' => $acceptances->id]) }} " method="post" style="margin-top: 50px">
                             @csrf
+                            @method('PUT')
                             <div class="card">
                                 <div class="card-body">
                                     <div class="form-group">
@@ -50,35 +48,29 @@
                         </form>
 
 
-                        <table class="table table-striped">
-                            <thead>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>متخذ الإجراء</th>
+                            <th>تاريخ الإجراء</th>
+                            <th>حالة الإنجاز</th>
+                            <th>نص الإجراء</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @if ($acceptances)
                             <tr>
-                                <th>#</th>
-                                <th>متخذ الإجراء</th>
-                                <th>تاريخ الإجراء</th>
-                                <th>حالة الإنجاز</th>
-                                <th>نص الإجراء</th>
-
+                                <td>{{ $acceptances->id }}</td>
+                                <td>{{ $acceptances->assigned }}</td>
+                                <td>{{ $acceptances->procedures_time }}</td>
+                                <td>{{ $acceptances->procedures_status }}</td>
+                                <td>{{ $acceptances->procedures_token }}</td>
                             </tr>
-                            </thead>
-                            <tbody>
-                            @foreach ($n as $notification)
-                                @foreach ($acceptances as $acceptance)
-                                    @if($acceptance->problem_id == $notification->id )
-                                        {{--                            @if($acceptance->problem_id == $notification->id  )--}}
-                                        <tr>
-                                            <td>{{ $acceptance->id }}</td>
-                                            <td>{{ $acceptance->assigned }}</td>
-                                            <td>{{ $acceptance->procedures_time }}</td>
-                                            <td>{{ $acceptance->procedures_status }}</td>
-                                            <td>{{ $acceptance->procedures_token }}</td>
+                        @endif
+                        </tbody>
+                    </table>
 
-                                        </tr>
-                                    @endif
-                                @endforeach
-                            @endforeach
-                            </tbody>
-                        </table>
                 </div>
             </div>
         </div>

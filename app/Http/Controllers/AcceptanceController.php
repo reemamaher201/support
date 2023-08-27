@@ -21,30 +21,24 @@ class AcceptanceController extends Controller
         // return redirect()->route('acceptances.notDetails');
     }
 
-    public function storeProcedures(Request $request)
+    public function procedures($id)
     {
-        $validatedData = $request->validate([
-            'procedures_token' => 'required|string',
-            'procedures_status' => 'required|in:غير منجزة,منجزة',// Make sure the values match your radio button values
-            'procedures_time' => 'required|timestamp'
-        ]);
+        $acceptances = Acceptance::find($id);
+        return view('pages/supporter/procedures', compact('acceptances')); // حيث 'procedures.show' هو اسم العرض الذي سيتم استخدامه
+    }
 
-        // Assuming you have an existing record in the database
-        $acceptance = Acceptance::first();
+    public function storeProcedures(Request $request,$id)
+    {
+        $acceptance = Acceptance::findOrFail($id);
 
-        // Update the values of procedures_token and procedures_status
         $acceptance->update([
-            'procedures_token' => $validatedData['procedures_token'],
-            'procedures_status' => $validatedData['procedures_status'],
-            'procedures_time' => now()
+            'procedures_token' => $request->input('procedures_token'),
+            'procedures_status' => $request->input('procedures_status'),
+
         ]);
-        return redirect()->back();
+
+        return redirect()->back()->with('success', 'تم تحديث الإجراء بنجاح');
     }
 
-    public function procedures()
-    {
-        $acceptances = Acceptance::all();
-        $n = Notification::all();
-        return view('pages/supporter/procedures', compact('acceptances','n'));
-    }
+
 }

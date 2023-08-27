@@ -145,18 +145,14 @@
                         @foreach ($acceptances as $acceptance)
                             @if($acceptance->problem_id == $notification->id  )
                                 <tr>
-                                    <td>{{ $acceptance->id }}</td>
+                                    <td>{{ $acceptance->problem_id }}</td>
                                     <td>{{ $acceptance->assigned }}</td>
                                     <td>{{ $acceptance->maintenance_location }}</td>
                                     <td>{{ $acceptance->delivery_time }}</td>
                                     <td>{{ $acceptance->receiver }}</td>
                                     <td>{{ $acceptance->received_device }}</td>
-                                    <td><a class="btn btn-outline-warning"
-                                           href="{{route('acceptances.procedures', ['id' => $notification->id] ) }}"
-                                           style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713"
-                                           onmouseover="this.style.webkitTextFillColor='white'"
-                                           onmouseout="this.style.webkitTextFillColor='black'">
-                                            الإجراءات
+                                    <td> <a href="{{ route('procedures.show', ['id' => $acceptance->id]) }}" class="btn btn-primary">
+                                            استكمال الإجراءات
                                         </a></td>
                                 </tr>@endif
                         @endforeach
