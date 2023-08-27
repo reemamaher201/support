@@ -151,7 +151,7 @@
                                     <td>{{ $acceptance->delivery_time }}</td>
                                     <td>{{ $acceptance->receiver }}</td>
                                     <td>{{ $acceptance->received_device }}</td>
-                                    <td> <a href="{{ route('procedures.show', ['id' => $acceptance->id]) }}" class="btn btn-primary" style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713"
+                                    <td> <a href="{{ route('procedures.show', ['id' => $acceptance->id]) }}" class="btn btn-outline-warning" style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713"
                                             onmouseover="this.style.webkitTextFillColor='white'"
                                             onmouseout="this.style.webkitTextFillColor='black'">
                                             استكمال الإجراءات

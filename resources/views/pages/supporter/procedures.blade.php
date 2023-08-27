@@ -66,6 +66,13 @@
                                 <td>{{ $acceptances->procedures_time }}</td>
                                 <td>{{ $acceptances->procedures_status }}</td>
                                 <td>{{ $acceptances->procedures_token }}</td>
+                                <td>
+                                    <a href="{{ route('spare.show', ['id' => $acceptances->id]) }}" class="btn btn-outline-warning" style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713"
+                                       onmouseover="this.style.webkitTextFillColor='white'"
+                                       onmouseout="this.style.webkitTextFillColor='black'">
+                                        قطع الغيار                                    </a>
+
+                                </td>
                             </tr>
                         @endif
                         </tbody>

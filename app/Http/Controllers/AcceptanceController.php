@@ -34,11 +34,31 @@ class AcceptanceController extends Controller
         $acceptance->update([
             'procedures_token' => $request->input('procedures_token'),
             'procedures_status' => $request->input('procedures_status'),
+            'procedures_time'=>now(),
 
         ]);
 
         return redirect()->back()->with('success', 'تم تحديث الإجراء بنجاح');
     }
 
+    public function showSpare($id)
+    {
+        $acceptances = Acceptance::find($id);
+        return view('pages/supporter/spareParts', compact('acceptances'));
+    }
+
+    public function storeSpare(Request $request,$id)
+    {
+        $acceptance = Acceptance::findOrFail($id);
+
+        $acceptance->update([
+            'spare_name' => $request->input('spare_name'),
+            'method_spare' => $request->input('method_spare'),
+            'savingSpare_time'=>$request->input('savingSpare_time'),
+
+        ]);
+
+        return redirect()->back()->with('success', 'تم تحديث القطع بنجاح');
+    }
 
 }

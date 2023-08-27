@@ -51,5 +51,9 @@ Route::post('/acceptances', [AcceptanceController::class,'store'])->name('accept
 Route::get('/procedures/{id}', [AcceptanceController::class,'procedures'])->name('procedures.show');
 Route::put('/store-procedure/{id}', [AcceptanceController::class,'storeProcedures'])->name('procedures.store');
 
+Route::get('/spare/{id}', [AcceptanceController::class, 'showSpare'])->name('spare.show');
+Route::put('/spareStore/{id}', [AcceptanceController::class, 'storeSpare'])->name('spare.create');
+
+
 
 

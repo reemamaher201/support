@@ -12,7 +12,7 @@ class Acceptance extends Model
 
     protected $fillable = [
         'assigned', 'maintenance_location', 'delivery_time',
-        'receiver', 'received_device', 'problem_id', 'employee_id', 'procedures_token', 'procedures_status', 'procedures_time'];
+        'receiver', 'received_device', 'problem_id', 'employee_id', 'procedures_token', 'procedures_status', 'spare_name','method_spare','savingSpare_time'];
 
 
 }
