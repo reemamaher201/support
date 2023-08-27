@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Acceptance;
 use App\Models\Notification;
 use App\Models\SupportRequest;
 use Illuminate\Http\Request;
@@ -96,5 +97,25 @@ class SupportController extends Controller
         $request->delete();
 
         return redirect()->route('requests')->with('success', 'تم حذف الطلب بنجاح');
+    }
+
+    public function showSubmit($id)
+    {
+        $acceptances = Acceptance::find($id);
+        return view('pages/supporter/submitProcess', compact('acceptances'));
+    }
+
+    public function storeSubmit(Request $request,$id)
+    {
+        $acceptance = Acceptance::findOrFail($id);
+
+        $acceptance->update([
+            'spare_name' => $request->input('spare_name'),
+            'method_spare' => $request->input('method_spare'),
+            'savingSpare_time'=>$request->input('savingSpare_time'),
+
+        ]);
+
+        return redirect()->back()->with('success', 'تم تحديث القطع بنجاح');
     }
 }

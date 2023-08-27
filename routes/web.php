@@ -54,6 +54,6 @@ Route::put('/store-procedure/{id}', [AcceptanceController::class,'storeProcedure
 Route::get('/spare/{id}', [AcceptanceController::class, 'showSpare'])->name('spare.show');
 Route::put('/spareStore/{id}', [AcceptanceController::class, 'storeSpare'])->name('spare.create');
 
-
-
+Route::get('/submit/{id}', [SupportController::class, 'showSubmit'])->name('submit.show');
+Route::put('/submitStore/{id}', [SupportController::class, 'storeSubmit'])->name('submit.create');
 

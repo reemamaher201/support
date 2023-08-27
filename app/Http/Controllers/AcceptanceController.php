@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Acceptance;
-use App\Models\Notification;
+
 use Illuminate\Http\Request;
 
 class AcceptanceController extends Controller
@@ -60,5 +60,6 @@ class AcceptanceController extends Controller
 
         return redirect()->back()->with('success', 'تم تحديث القطع بنجاح');
     }
+
 
 }

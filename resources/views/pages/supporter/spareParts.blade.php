@@ -59,6 +59,7 @@
                             <th>القطعة</th>
                             <th>تاريخ توفيرها</th>
                             <th>طريقة التوفير</th>
+                            <th>عملية التسليم</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -68,7 +69,10 @@
                                 <td>{{ $acceptances->spare_name }}</td>
                                 <td>{{ $acceptances->savingSpare_time }}</td>
                                 <td>{{ $acceptances->method_spare }}</td>
-
+<td> <a href="{{ route('submit.show', ['id' => $acceptances->id]) }}" class="btn btn-outline-warning" style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713"
+        onmouseover="this.style.webkitTextFillColor='white'"
+        onmouseout="this.style.webkitTextFillColor='black'">
+        عملية التسليم                                    </a></td>
 
                             </tr>
                         @endif
