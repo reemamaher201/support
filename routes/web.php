@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AcceptanceController;
+use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SupportController;
 use Illuminate\Support\Facades\Auth;
@@ -54,6 +55,6 @@ Route::put('/store-procedure/{id}', [AcceptanceController::class,'storeProcedure
 Route::get('/spare/{id}', [AcceptanceController::class, 'showSpare'])->name('spare.show');
 Route::put('/spareStore/{id}', [AcceptanceController::class, 'storeSpare'])->name('spare.create');
 
-Route::get('/submit/{id}', [SupportController::class, 'showSubmit'])->name('submit.show');
-Route::put('/submitStore/{id}', [SupportController::class, 'storeSubmit'])->name('submit.create');
+Route::get('/submit/{id}', [DeliveryController::class, 'showSubmit'])->name('submit.show');
+Route::post('/submitStore', [DeliveryController::class, 'storeSubmit'])->name('submit.create');
 

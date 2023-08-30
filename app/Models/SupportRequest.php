@@ -24,4 +24,9 @@ class SupportRequest extends Model
         return $this->belongsTo(User::class, 'employee_id', 'emp_id');
 
     }
+
+    public function parentdelivery()
+    {
+        return $this->hasOne(Delivery::class, 'support_id', 'id');
+    }
 }

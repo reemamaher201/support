@@ -13,24 +13,28 @@
             <div class=" rtl main-panel">
                 <div class="content-wrapper">
 
-                    <form action="{{ route('submit.create' ,['id' => $acceptances->id]) }} " method="post" style="margin-top: 50px">
+                    <form action="{{ route('submit.create') }} " method="post" style="margin-top: 50px">
                         @csrf
-                        @method('PUT')
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="spare_name">اسم المستلم </label>
-                                    <input class="form-control" id="spare_name" name="spare_name"
+                                    <label for="support_id">اسم  </label>
+                                    <input  class="form-control" id="support_id" name="support_id"
+                                        value="{{$acceptances->id}}"   required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient_name">اسم المستلم </label>
+                                    <input class="form-control" id="recipient_name" name="recipient_name"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="spare_name">مكان الاستلام</label>
-                                    <input class="form-control" id="spare_name" name="spare_name"
+                                    <label for="delivery_place">مكان الاستلام</label>
+                                    <input class="form-control" id="delivery_place" name="delivery_place"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="savingSpare_time">تاريخ الاستلام </label>
-                                    <input type="datetime-local" class="form-control" id="savingSpare_time" name="savingSpare_time"
+                                    <label for="delivery_time">تاريخ الاستلام </label>
+                                    <input type="datetime-local" class="form-control" id="delivery_time" name="delivery_time"
                                            required>
                                 </div>
 
@@ -47,10 +51,9 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>القطعة</th>
-                            <th>تاريخ توفيرها</th>
-                            <th>طريقة التوفير</th>
-                            <th>عملية التسليم</th>
+                            <th>اسم المستلم</th>
+                            <th>تاريخ الاستلام</th>
+                            <th>مكان الاستلام</th>
                         </tr>
                         </thead>
 {{--                        <tbody>--}}
