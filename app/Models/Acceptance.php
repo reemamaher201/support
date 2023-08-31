@@ -14,5 +14,8 @@ class Acceptance extends Model
         'assigned', 'maintenance_location', 'delivery_time',
         'receiver', 'received_device', 'problem_id', 'employee_id', 'procedures_token', 'procedures_status', 'spare_name','method_spare','savingSpare_time'];
 
-
+    public function deliveries()
+    {
+        return $this->hasMany(Delivery::class, 'support_id');
+    }
 }

@@ -9,9 +9,10 @@ class Delivery extends Model
 {
     use HasFactory;
     protected $fillable = ['support_id','recipient_name','delivery_place','delivery_time'];
-    public function delivery()
+    public function acceptances()
     {
-        return $this->belongsTo(SupportRequest::class, 'support_id', 'id');
+        return $this->belongsTo(Acceptance::class, 'support_id', 'id');
+
     }
 }
 

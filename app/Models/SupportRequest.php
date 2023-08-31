@@ -25,8 +25,5 @@ class SupportRequest extends Model
 
     }
 
-    public function parentdelivery()
-    {
-        return $this->hasOne(Delivery::class, 'support_id', 'id');
-    }
+
 }

@@ -1,8 +1,10 @@
-@extends('layout.master', ['title' => 'الإجراءات'])
+@extends('layout.master', ['title' => 'الاجراءات'])
+
 <body>
 
 <div class="container-scroller">
     @section('content')
+        <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_sidebar.html -->
             @if (Auth::user()->parent_unit == 1)
@@ -10,8 +12,13 @@
             @else
                 @include('layout.sidebar2')
             @endif
+
+            <!-- partial -->
             <div class=" rtl main-panel">
                 <div class="content-wrapper">
+
+
+                    <div class="row">
 
                         <form action="{{ route('procedures.store' ,['id' => $acceptances->id]) }} " method="post" style="margin-top: 50px">
                             @csrf
@@ -48,6 +55,12 @@
                         </form>
 
 
+
+
+                    </div>
+
+                    <!-- جدول عرض البيانات -->
+                    <h2>البيانات المخزنة</h2>
                     <table class="table table-striped">
                         <thead>
                         <tr>
@@ -79,9 +92,19 @@
                         @endif
                         </tbody>
                     </table>
-
                 </div>
+
+
             </div>
+            <!-- content-wrapper ends -->
+            <!-- partial:partials/_footer.html -->
+
+            <!-- partial -->
         </div>
+        <!-- main-panel ends -->
 </div>
+<!-- page-body-wrapper ends -->
+
+
 </body>
+@endsection

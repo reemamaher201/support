@@ -13,11 +13,15 @@ class DeliveryController extends Controller
     public function showSubmit($id)
     {
         $acceptances = Acceptance::find($id);
+
         return view('pages/supporter/submitProcess', compact('acceptances'));
     }
 
-    public function storeSubmit(Request $request)
+    public function storeSubmit(Request $request,$id)
     {
+
+
+        $acceptance = Acceptance::find($id);
         // التحقق من البيانات المدخلة من قبل المستخدم
         $validatedData = $request->validate([
             'recipient_name' => 'required|string',
@@ -27,7 +31,7 @@ class DeliveryController extends Controller
 
         // إنشاء سجل جديد في جدول "delivery"
         $delivery = Delivery::create([
-            'support_id'=>'',
+            'support_id'=>$acceptance->id,
             'recipient_name' => $validatedData['recipient_name'],
             'delivery_place' => $validatedData['delivery_place'],
             'delivery_time' => $validatedData['delivery_time'],

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamp('delivery_time')->nullable();
             $table->timestamps();
 
-            $table->foreign('support_id')->references('id')->on('support_requests')->onDelete('cascade');
+            $table->foreign('support_id')->references('id')->on('acceptances')->onDelete('cascade');
 
         });
     }

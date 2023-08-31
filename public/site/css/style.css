@@ -7977,9 +7977,14 @@ textarea.form-control-lg {
   -webkit-box-pack: justify !important;
   -ms-flex-pack: justify !important;
   justify-content: space-between !important;
-    padding-right: 20px !important;
+    padding-right: 30px !important;
 }
-
+.justify-content-between, .page-footer {
+    -webkit-box-pack: justify !important;
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
+    padding-right: 770px !important;
+}
 .justify-content-around {
   -ms-flex-pack: distribute !important;
   justify-content: space-around !important; }

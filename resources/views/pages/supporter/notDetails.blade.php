@@ -1,4 +1,4 @@
-@extends('layout.master', ['title' => 'الرئيسية'])
+@extends('layout.master', ['title' => 'الطلبات الواردة'])
 
 <body>
 
