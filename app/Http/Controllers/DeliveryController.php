@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Acceptance;
 use App\Models\Delivery;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,9 +13,11 @@ class DeliveryController extends Controller
 {
     public function showSubmit($id)
     {
+        $notification = Notification::findOrFail($id);
+
         $acceptances = Acceptance::find($id);
 
-        return view('pages/supporter/submitProcess', compact('acceptances'));
+        return view('pages/supporter/submitProcess', compact('acceptances','notification'));
     }
 
     public function storeSubmit(Request $request,$id)

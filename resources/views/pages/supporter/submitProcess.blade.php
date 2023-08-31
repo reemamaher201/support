@@ -25,15 +25,11 @@
                             @csrf
                             <div class="card">
                                 <div class="card-body">
-                                    {{--                                    <div class="form-group">--}}
-                                    {{--                                        <label for="support_id">اسم  </label>--}}
-                                    {{--                                        <input  class="form-control" id="support_id" name="support_id"--}}
-                                    {{--                                                value="{{$acceptances->problem_id}}"   required>--}}
-                                    {{--                                    </div>--}}
+
                                     <div class="form-group">
                                         <label for="recipient_name">اسم المستلم </label>
-                                        <input class="form-control" id="recipient_name" name="recipient_name"
-                                               required>
+                                        <input class="form-control" id="recipient_name" name="recipient_name" value="{{$notification->employee->emp_name}}"
+                                               readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="delivery_place">مكان الاستلام</label>
