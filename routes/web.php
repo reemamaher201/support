@@ -58,3 +58,4 @@ Route::put('/spareStore/{id}', [AcceptanceController::class, 'storeSpare'])->nam
 Route::get('/submit/{id}', [DeliveryController::class, 'showSubmit'])->name('submit.show');
 Route::post('/submitStore/{id}', [DeliveryController::class, 'storeSubmit'])->name('submit.create');
 
+Route::get('/msgShow/{id}', [DeliveryController::class, 'msgShow'])->name('msg.show');
