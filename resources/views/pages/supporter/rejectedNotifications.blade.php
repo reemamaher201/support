@@ -30,12 +30,6 @@
                         @if(isset($rejectedNotifications))
                             <div class="row">
                                 <div class="container">
-                                    @php
-                                        $colors = ['bg-gradient-success', 'bg-gradient-warning', 'bg-gradient-danger', 'bg-gradient-info', 'bg-gradient-primary'];
-                                        $randomColor = $colors[rand(0, count($colors) - 1)];
-
-
-                                    @endphp
 
                                     @foreach($rejectedNotifications as $notification)
 
@@ -43,7 +37,7 @@
                                                 <div class="card">
                                                     <!-- محتوى البطاقة لكل طلب -->
                                                     <div
-                                                        class="card-header {{ $randomColor }}">{{ $notification->subject }}</div>
+                                                        class="card-header bg-gradient-danger">{{ $notification->subject }}</div>
                                                     <div class="card-body">
                                                         <p>تم رفض الطلب {{ $notification->id }}</p>
 
@@ -63,9 +57,9 @@
                                     <div class="col-xl mb-4">
                                         <div class="card">
                                             <!-- محتوى البطاقة لكل طلب -->
-                                            <div class="card-header bg-gradient-warning "></div>
+                                            <div class="card-header bg-gradient-danger "></div>
                                             <div class="card-body">
-                                                <p>لا يوجد طلبات مروضة بعد</p>
+                                                <p>لا يوجد طلبات مرفوضة بعد</p>
                                             </div>
                                         </div>
                                     </div>

@@ -22,45 +22,7 @@
             </form>
         </div>
         <ul class="navbar-nav navbar-nav-right" style="margin-right: 450px">
-            <li class="nav-item dropdown">
-                <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
-                   data-bs-toggle="dropdown">
-                    <i class="mdi mdi-bell-outline"></i>
-                    <span class="count-symbol bg-danger"></span>
-                </a>
-                <!-- في صفحة الدعم الفني -->
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                     aria-labelledby="notificationDropdown">
-                    <h6 class="p-3 mb-0">الإشعارات</h6>
-                    <div class="dropdown-divider"></div>
-                    @isset($notifications)
 
-                        @foreach($notifications as $notification)
-
-                            <a class="dropdown-item preview-item"
-                               href="{{ route('notification.show', ['id' => $notification->id]) }}">
-
-                                <div class="preview-thumbnail">
-                                    @php
-                                        $colors = ['bg-gradient-success', 'bg-gradient-warning', 'bg-gradient-danger', 'bg-gradient-info', 'bg-gradient-primary'];
-                                        $randomColor = $colors[rand(0, count($colors) - 1)];
-
-                                    @endphp
-                                    <div class="preview-icon {{ $randomColor }}">
-                                        <i class="mdi mdi-bell-alert"></i>
-                                    </div>
-                                </div>
-                                <div
-                                    class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                                    <h6 class="preview-subject font-weight-normal mb-1">{{ $notification->subject }}</h6>
-                                    <p class="text-gray ellipsis mb-0">{{ $notification->message }}</p>
-                                </div>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                        @endforeach
-                    @endisset
-                </div>
-            </li>
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
                    aria-expanded="false">

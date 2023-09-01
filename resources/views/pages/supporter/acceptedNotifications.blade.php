@@ -30,12 +30,7 @@
                         @if(isset($acceptedNotifications))
                             <div class="row">
                                 <div class="container">
-                                    @php
-                                        $colors = ['bg-gradient-success', 'bg-gradient-warning', 'bg-gradient-danger', 'bg-gradient-info', 'bg-gradient-primary'];
-                                        $randomColor = $colors[rand(0, count($colors) - 1)];
 
-
-                                    @endphp
 
                                     @foreach($acceptedNotifications as $notification)
 
@@ -44,9 +39,9 @@
                                             <div class="col-xl mb-4">
                                                 <div class="card">
                                                     <div
-                                                        class="card-header {{ $randomColor }}">{{$notification->subject}}</div>
+                                                        class="card-header bg-gradient-success">{{$notification->subject}}</div>
                                                     <div class="card-body">
-                                                        <p>تم قبول الطلب،<button class="btn {{ $randomColor }}"> قم باتخاذ الاجراءات الان</button> </p>
+                                                        <p>تم قبول الطلب،<button class="btn bg-gradient-success"> قم باتخاذ الاجراءات الان</button> </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -62,7 +57,7 @@
                                     <div class="col-xl mb-4">
                                         <div class="card">
                                             <!-- محتوى البطاقة لكل طلب -->
-                                            <div class="card-header bg-gradient-warning "></div>
+                                            <div class="card-header bg-gradient-success "></div>
                                             <div class="card-body">
                                                 <p>لا يوجد طلبات مقبولة بعد</p>
                                             </div>

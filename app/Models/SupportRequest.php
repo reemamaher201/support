@@ -24,4 +24,6 @@ class SupportRequest extends Model
         return $this->belongsTo(User::class, 'employee_id', 'emp_id');
 
     }
+
+
 }

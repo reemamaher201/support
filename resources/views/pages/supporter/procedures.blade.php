@@ -6,11 +6,11 @@
     <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_sidebar.html -->
-        @if (Auth::user()->parent_unit == 1)
-            @include('layout.sidebar1')
-        @else
-            @include('layout.sidebar2')
-        @endif
+            @if (Auth::user()->parent_unit == 1)
+                @include('layout.sidebar1')
+            @else
+                @include('layout.sidebar2')
+            @endif
 
             <div class=" rtl main-panel">
                 <div class="content-wrapper">

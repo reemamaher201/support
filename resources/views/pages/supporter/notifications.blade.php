@@ -15,7 +15,7 @@
             <!-- partial -->
             <div class=" rtl main-panel">
                 <div class="content-wrapper">
-                    <div class="page-header">
+                     <div class="page-header">
                         <h3 class="page-title">
                                 <span class="page-title-icon bg-gradient-warning text-white me-2">
                                     <i class="mdi mdi-bell"></i>

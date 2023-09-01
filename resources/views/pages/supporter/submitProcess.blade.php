@@ -1,8 +1,10 @@
-@extends('layout.master', ['title' => 'الإجراءات'])
+@extends('layout.master', ['title' => 'التسليم'])
+
 <body>
 
 <div class="container-scroller">
     @section('content')
+        <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_sidebar.html -->
             @if (Auth::user()->parent_unit == 1)
@@ -10,68 +12,88 @@
             @else
                 @include('layout.sidebar2')
             @endif
+
+            <!-- partial -->
             <div class=" rtl main-panel">
                 <div class="content-wrapper">
 
-                    <form action="{{ route('submit.create' ,['id' => $acceptances->id]) }} " method="post" style="margin-top: 50px">
-                        @csrf
-                        @method('PUT')
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label for="spare_name">اسم المستلم </label>
-                                    <input class="form-control" id="spare_name" name="spare_name"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="spare_name">مكان الاستلام</label>
-                                    <input class="form-control" id="spare_name" name="spare_name"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="savingSpare_time">تاريخ الاستلام </label>
-                                    <input type="datetime-local" class="form-control" id="savingSpare_time" name="savingSpare_time"
-                                           required>
-                                </div>
 
-                                <button class="btn btn-outline-warning" type="submit"
-                                        style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713; margin-right: 830px">
-                                    ارسال
-                                </button>
+                    <div class="row">
+
+                        <form action="{{ route('submit.create',['id'=>$acceptances->id]) }} " method="post"
+                              style="margin-top: 50px">
+                            @csrf
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="form-group">
+                                        <label for="recipient_name">اسم المستلم </label>
+                                        <input class="form-control" id="recipient_name" name="recipient_name" value="{{$notification->employee->emp_name}}"
+                                               readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="delivery_place">مكان الاستلام</label>
+                                        <input class="form-control" id="delivery_place" name="delivery_place"
+                                               required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="delivery_time">تاريخ الاستلام </label>
+                                        <input type="datetime-local" class="form-control" id="delivery_time"
+                                               name="delivery_time"
+                                               required>
+                                    </div>
+
+                                    <button class="btn btn-outline-warning" type="submit"
+                                            style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713; margin-right: 830px">
+                                        ارسال
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
 
 
+                    </div>
+
+                    <!-- جدول عرض البيانات -->
+                    <h2>البيانات المخزنة</h2>
                     <table class="table table-striped">
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>القطعة</th>
-                            <th>تاريخ توفيرها</th>
-                            <th>طريقة التوفير</th>
-                            <th>عملية التسليم</th>
+                            <th>اسم المستلم</th>
+                            <th>تاريخ الاستلام</th>
+                            <th>مكان الاستلام</th>
                         </tr>
                         </thead>
-{{--                        <tbody>--}}
-{{--                        @if ($acceptances)--}}
-{{--                            <tr>--}}
-{{--                                <td>{{ $acceptances->id }}</td>--}}
-{{--                                <td>{{ $acceptances->spare_name }}</td>--}}
-{{--                                <td>{{ $acceptances->savingSpare_time }}</td>--}}
-{{--                                <td>{{ $acceptances->method_spare }}</td>--}}
-{{--                                <td> <a href="" class="btn btn-outline-warning" style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713"--}}
-{{--                                        onmouseover="this.style.webkitTextFillColor='white'"--}}
-{{--                                        onmouseout="this.style.webkitTextFillColor='black'">--}}
-{{--                                        عملية التسليم                                    </a></td>--}}
-
-{{--                            </tr>--}}
-{{--                        @endif--}}
-{{--                        </tbody>--}}
+                        <tbody>
+                        @foreach($acceptances->deliveries as $delivery)
+                            <tr>
+                                <td>{{ $acceptances->problem_id }}</td>
+                                <td>{{ $delivery->recipient_name }}</td>
+                                <td>{{ $delivery->delivery_time }}</td>
+                                <td>{{ $delivery->delivery_place }}</td>
+                                <td> <a href="{{ route('msg.show', ['id' => $acceptances->employee_id]) }}" class="btn btn-outline-warning" style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713"
+                                        onmouseover="this.style.webkitTextFillColor='white'"
+                                        onmouseout="this.style.webkitTextFillColor='black'">
+                                        أرسل رسالة                                    </a></td>
+                            </tr>
+                        @endforeach
+                        </tbody>
                     </table>
 
                 </div>
+
+
             </div>
+            <!-- content-wrapper ends -->
+            <!-- partial:partials/_footer.html -->
+
+            <!-- partial -->
         </div>
+        <!-- main-panel ends -->
 </div>
+<!-- page-body-wrapper ends -->
+
+
 </body>
+@endsection
