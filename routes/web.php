@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AcceptanceController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\RateController;
 use App\Http\Controllers\SupportController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -56,4 +57,10 @@ Route::put('/spareStore/{id}', [AcceptanceController::class, 'storeSpare'])->nam
 
 Route::get('/submit/{id}', [SupportController::class, 'showSubmit'])->name('submit.show');
 Route::put('/submitStore/{id}', [SupportController::class, 'storeSubmit'])->name('submit.create');
+
+//Route::get('/notificationEmp',function (){
+//    return view('pages.employees.notification');
+//});
+Route::get('/showNotification', [RateController::class, 'showRating'])->name('showNotification');
+Route::post('/notificationEmp',[RateController::class,'rating'])->name('notification.rate');
 

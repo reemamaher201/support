@@ -36,7 +36,13 @@
             </a>
         </li>
 
+        <li class="rtl nav-item">
+            <a class="nav-link" href="{{route('showNotification')}}">
+                <i class="mdi mdi-bell-ring-outline menu-icon"></i>
+                <span class="menu-title">الإشعارات</span>
 
+            </a>
+        </li>
 
 
     </ul>
