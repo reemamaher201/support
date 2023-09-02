@@ -116,7 +116,7 @@
                                         <input type="hidden" class="form-control" id="support_id"
                                                value="{{  $support->id }}" name="support_id" required>
                                     </div>
-                                    <button type="submit" class="btn bg-gradient-warning">تسليم</button>
+                                    <button type="submit" class="btn btn-outline-warning" style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713; margin-right: 830px">تسليم</button>
                                 </div>
                             </div>
                         </form>

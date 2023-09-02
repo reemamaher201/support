@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Notification;
+use App\Models\Rates;
+use App\Models\SupportRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,16 +27,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->parent_unit == 1){
-            // استرداد جميع الإشعارات
-//            $notifications = Notification::all();
-//            , ['notifications' => $notifications]
-            // تمرير الإشعارات إلى العرض
-            return view('index');
-        }
-        else{
-            return view('index');
-        }
+
+
+        $employeeId = Auth::user()->emp_id;
+        $supportRequests = SupportRequest::where('employee_id', $employeeId)->get();
+
+            return view('index',compact('supportRequests'));
+
     }
 
 

@@ -39,7 +39,7 @@
                                                 <div class="col-xl mb-4">
                                                     <div class="card">
                                                         <!-- محتوى البطاقة لكل طلب -->
-                                                        <div class="card-header bg-gradient-warning"> طلب صيانة بعنوان : {{ $support->issue_title }} من : {{$support->employee->emp_id}} </div>
+                                                        <div class="card-header bg-gradient-warning"> طلب صيانة بعنوان : {{ $support->issue_title }} من : {{$support->employee->emp_name}} </div>
                                                         <div class="card-body">
                                                             <p>{{ $support->issue_description }}</p>
                                                             <!-- زر الرفض -->

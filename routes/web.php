@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AcceptanceController;
 use App\Http\Controllers\DeliveryController;
-use App\Http\Controllers\NotificationController;
+
 use App\Http\Controllers\RateController;
 use App\Http\Controllers\SupportController;
 use Illuminate\Support\Facades\Auth;
@@ -26,16 +26,17 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
+
 Route::get('/showForm', [SupportController::class, 'showFormRequest'])->name('showForm');
 
 
-Route::get('/requests', [SupportController::class, 'showSupportRequests'])->name('requests.blade.php');
+Route::get('/requests', [SupportController::class, 'showSupportRequests'])->name('requests');
 Route::post('/submit', [SupportController::class, 'submitSupportRequest'])->name('submit');
 
 
-Route::get('/support-requests.blade.php/{id}/edit', [SupportController::class, 'edit'])->name('support.edit');
-Route::put('/support-requests.blade.php/{id}', [SupportController::class, 'update'])->name('support.update');
-Route::get('/support-requests.blade.php/{id}/delete', [SupportController::class, 'delete'])->name('support.delete');
+Route::get('/support-requests/{id}/edit', [SupportController::class, 'edit'])->name('support.edit');
+Route::put('/support-requests/{id}', [SupportController::class, 'update'])->name('support.update');
+Route::get('/support-requests/{id}/delete', [SupportController::class, 'delete'])->name('support.delete');
 
 
 Route::get('/support', [SupportController::class, 'showSupport'])->name('notification');
@@ -60,9 +61,9 @@ Route::get('/submit/{id}', [DeliveryController::class, 'showSubmit'])->name('sub
 Route::post('/submitStore/{id}', [DeliveryController::class, 'storeSubmit'])->name('submit.create');
 Route::get('/delivery/{id}', [DeliveryController::class, 'msgShow'])->name('msg.show');
 
-Route::get('/msgShow/{id}', [DeliveryController::class, 'msgShow'])->name('msg.show');
 
-Route::get('/showNotification', [RateController::class, 'showRating'])->name('showNotification');
-Route::post('/notificationEmp',[RateController::class,'rating'])->name('notification.rate');
+
+Route::get('/showRating/{id}', [RateController::class, 'showRating'])->name('showRating');
+Route::post('/ratingSupport',[RateController::class,'submitRating'])->name('submit.rating');
 
 

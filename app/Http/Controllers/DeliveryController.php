@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Acceptance;
 use App\Models\Delivery;
 
+use App\Models\Rates;
 use App\Models\SupportRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,6 +39,7 @@ class DeliveryController extends Controller
 
         // إنشاء سجل جديد في جدول "delivery"
         $delivery = Delivery::create([
+            'emp_support_id'=>Auth::user()->emp_id,
             'support_id' => $acceptance->id,
             'employee_id'=>$acceptance->employee_id,
             'recipient_name' => $validatedData['recipient_name'],
@@ -52,10 +55,9 @@ class DeliveryController extends Controller
     public function msgShow($id)
     {
         if (Auth::user()->emp_id == $id) {
-
+            $rates = Rates::find($id);
             $acceptances = Acceptance::find($id);
-
-            return view('index', compact('acceptances'));
+            return view('index', compact('acceptances','rates'));
         }
 
         return redirect()->route('home');

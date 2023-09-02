@@ -14,3 +14,6 @@
 <script src="{{asset('site/js/dashboard.js')}}"></script>
 <script src="{{asset('site/js/todolist.js')}}"></script>
 <!-- End custom js for this page -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>

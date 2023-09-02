@@ -11410,7 +11410,9 @@ code {
   color: #000000; }
 
 .text-small {
-  font-size: 12px; }
+  font-size: 12px;
+    margin-right: 20px;
+}
 
 .flex-grow {
   -webkit-box-flex: 1;
@@ -14227,7 +14229,7 @@ dl {
             height: 44px;
             border-radius: 100%; }
         .sidebar .nav .nav-item.nav-profile .nav-link .nav-profile-text {
-          margin-right: 1rem; }
+          margin-right: 3rem; }
           .rtl .sidebar .nav .nav-item.nav-profile .nav-link .nav-profile-text {
             margin-left: auto;
             margin-right: 1rem; }

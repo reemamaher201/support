@@ -72,7 +72,7 @@
                                 <td>{{ $delivery->recipient_name }}</td>
                                 <td>{{ $delivery->delivery_time }}</td>
                                 <td>{{ $delivery->delivery_place }}</td>
-                                <td> <a href="{{ route('msg.show', ['id' => $acceptance->id]) }}" class="btn btn-outline-warning" style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713"
+                                <td> <a href="{{ route('msg.show', ['id' => $delivery->id]) }}" class="btn btn-outline-warning" style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713"
                                         onmouseover="this.style.webkitTextFillColor='white'"
                                         onmouseout="this.style.webkitTextFillColor='black'">
                                         أرسل رسالة                                    </a></td>

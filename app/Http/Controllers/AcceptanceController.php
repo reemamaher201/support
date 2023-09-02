@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Acceptance;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AcceptanceController extends Controller
 {
@@ -32,6 +33,7 @@ class AcceptanceController extends Controller
         $acceptance = Acceptance::findOrFail($id);
 
         $acceptance->update([
+            'emp_support_id'=>Auth::user()->emp_id,
             'procedures_token' => $request->input('procedures_token'),
             'procedures_status' => $request->input('procedures_status'),
             'procedures_time'=>now(),

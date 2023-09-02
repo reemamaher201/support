@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Acceptance;
 use App\Models\Notification;
+use App\Models\Rates;
 use App\Models\SupportRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,7 @@ class SupportController extends Controller
         $supportRequests = SupportRequest::where('employee_id', $employeeId)->get();
         $totalRequests = count($supportRequests);
 
-        return view('pages.employees.show', ['supportRequests' => $supportRequests, 'totalRequests' => $totalRequests]);
+        return view('pages.employees.show', compact('supportRequests','totalRequests'));
     }
 
 
@@ -62,7 +63,7 @@ class SupportController extends Controller
 
 
 
-        return redirect()->route('requests.blade.php');
+        return redirect()->route('requests');
     }
 
     public function edit($id)
@@ -82,7 +83,7 @@ class SupportController extends Controller
             'office_location' => $request->input('office_location'),
         ]);
 
-        return redirect()->route('requests.blade.php')->with('success', 'تم تحديث البيانات بنجاح');
+        return redirect()->route('requests')->with('success', 'تم تحديث البيانات بنجاح');
     }
 
     public function delete($id)
@@ -90,7 +91,7 @@ class SupportController extends Controller
         $request = SupportRequest::findOrFail($id);
         $request->delete();
 
-        return redirect()->route('requests.blade.php')->with('success', 'تم حذف الطلب بنجاح');
+        return redirect()->route('requests')->with('success', 'تم حذف الطلب بنجاح');
     }
 
 

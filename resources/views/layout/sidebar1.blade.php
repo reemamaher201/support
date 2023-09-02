@@ -2,11 +2,7 @@
     <ul class="nav">
         <li class="rtl nav-item nav-profile">
             <a href="#" class=" rtl nav-link">
-                <div class="rtl nav-profile-image">
-                    <img src="{{asset('site/images/faces/face1.jpg')}}" alt="profile">
-                    <span class="login-status online"></span>
-                    <!--change to offline or busy as needed-->
-                </div>
+
                 <div class="rtl nav-profile-text d-flex flex-column">
                     <span class="font-weight-bold mb-2"> {{ Auth::user()->emp_name }} </span>
                     <span class="text-secondary text-small">{{ Auth::user()->parentUnit->unit_name }}</span>
