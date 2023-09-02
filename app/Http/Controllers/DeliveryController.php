@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Acceptance;
+
 use App\Models\Delivery;
-use App\Models\Notification;
+
+use App\Models\SupportRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,18 +13,21 @@ class DeliveryController extends Controller
 {
     public function showSubmit($id)
     {
-        $notification = Notification::findOrFail($id);
+        $acceptance = SupportRequest::findOrFail($id);
+        $delivery= Delivery::find($id);
 
-        $acceptances = Acceptance::find($id);
 
-        return view('pages/supporter/submitProcess', compact('acceptances', 'notification'));
+        return view('pages/supporter/submitProcess', compact( 'acceptance','delivery'));
     }
 
     public function storeSubmit(Request $request, $id)
     {
 
+        $support = SupportRequest::findOrFail($id);
+        $support->status = 3;
+        $support->save();
 
-        $acceptance = Acceptance::find($id);
+        $acceptance = SupportRequest::find($id);
         // التحقق من البيانات المدخلة من قبل المستخدم
         $validatedData = $request->validate([
             'recipient_name' => 'required|string',
@@ -45,20 +49,15 @@ class DeliveryController extends Controller
 
         return redirect()->back();
     }
-
     public function msgShow($id)
-
     {
-        $del = Delivery::find(6);
-
-        if (Auth::user()->emp_id == $del->employee_id) {
+        if (Auth::user()->emp_id == $id) {
 
             $acceptances = Acceptance::find($id);
 
             return view('index', compact('acceptances'));
         }
 
-        //return view('index');
         return redirect()->route('home');
     }
 

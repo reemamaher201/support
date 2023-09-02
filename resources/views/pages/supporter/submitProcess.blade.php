@@ -20,7 +20,7 @@
 
                     <div class="row">
 
-                        <form action="{{ route('submit.create',['id'=>$acceptances->id]) }} " method="post"
+                        <form action="{{ route('submit.create',['id'=>$acceptance->id]) }} " method="post"
                               style="margin-top: 50px">
                             @csrf
                             <div class="card">
@@ -28,7 +28,7 @@
 
                                     <div class="form-group">
                                         <label for="recipient_name">اسم المستلم </label>
-                                        <input class="form-control" id="recipient_name" name="recipient_name" value="{{$notification->employee->emp_name}}"
+                                        <input class="form-control" id="recipient_name" name="recipient_name" value="{{$acceptance->employee->emp_name}}"
                                                readonly>
                                     </div>
                                     <div class="form-group">
@@ -66,13 +66,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($acceptances->deliveries as $delivery)
+                        @foreach($acceptance->deliveries as $delivery)
                             <tr>
-                                <td>{{ $acceptances->problem_id }}</td>
+                                <td>{{ $acceptance->id }}</td>
                                 <td>{{ $delivery->recipient_name }}</td>
                                 <td>{{ $delivery->delivery_time }}</td>
                                 <td>{{ $delivery->delivery_place }}</td>
-                                <td> <a href="{{ route('msg.show', ['id' => $acceptances->id]) }}" class="btn btn-outline-warning" style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713"
+                                <td> <a href="{{ route('msg.show', ['id' => $acceptance->id]) }}" class="btn btn-outline-warning" style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713"
                                         onmouseover="this.style.webkitTextFillColor='white'"
                                         onmouseout="this.style.webkitTextFillColor='black'">
                                         أرسل رسالة                                    </a></td>

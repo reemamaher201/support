@@ -27,10 +27,10 @@ class HomeController extends Controller
     {
         if (Auth::user()->parent_unit == 1){
             // استرداد جميع الإشعارات
-            $notifications = Notification::all();
-
+//            $notifications = Notification::all();
+//            , ['notifications' => $notifications]
             // تمرير الإشعارات إلى العرض
-            return view('index', ['notifications' => $notifications]);
+            return view('index');
         }
         else{
             return view('index');

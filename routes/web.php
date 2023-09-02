@@ -29,21 +29,21 @@ Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('aut
 Route::get('/showForm', [SupportController::class, 'showFormRequest'])->name('showForm');
 
 
-Route::get('/requests', [SupportController::class, 'showSupportRequests'])->name('requests');
+Route::get('/requests', [SupportController::class, 'showSupportRequests'])->name('requests.blade.php');
 Route::post('/submit', [SupportController::class, 'submitSupportRequest'])->name('submit');
 
 
-Route::get('/support-requests/{id}/edit', [SupportController::class, 'edit'])->name('support.edit');
-Route::put('/support-requests/{id}', [SupportController::class, 'update'])->name('support.update');
-Route::get('/support-requests/{id}/delete', [SupportController::class, 'delete'])->name('support.delete');
+Route::get('/support-requests.blade.php/{id}/edit', [SupportController::class, 'edit'])->name('support.edit');
+Route::put('/support-requests.blade.php/{id}', [SupportController::class, 'update'])->name('support.update');
+Route::get('/support-requests.blade.php/{id}/delete', [SupportController::class, 'delete'])->name('support.delete');
 
 
-Route::get('/notification', [NotificationController::class, 'notification'])->name('notification');
-Route::get('/notification/{id}', [NotificationController::class, 'show'])->name('notification.show');
-Route::get('/reject-notification/{id}', [NotificationController::class,'showRejected'])->name('reject.notification');
-Route::get('/reject-notification', [NotificationController::class,'showRejectedPage'])->name('reject.show');
-Route::get('/accept-notification', [NotificationController::class,'showAcceptedPage'])->name('accept.show');
-Route::get('/accept-notification/{id}', [NotificationController::class,'showAccepted'])->name('accept.notification');
+Route::get('/support', [SupportController::class, 'showSupport'])->name('notification');
+Route::get('/support/{id}', [SupportController::class, 'show'])->name('notification.show');
+Route::get('/reject-support/{id}', [SupportController::class,'showRejected'])->name('reject.notification');
+Route::get('/reject-support', [SupportController::class,'showRejectedPage'])->name('reject.show');
+Route::get('/accept-support', [SupportController::class,'showAcceptedPage'])->name('accept.show');
+Route::get('/accept-support/{id}', [SupportController::class,'showAccepted'])->name('accept.notification');
 
 
 
@@ -59,9 +59,9 @@ Route::put('/spareStore/{id}', [AcceptanceController::class, 'storeSpare'])->nam
 Route::get('/submit/{id}', [DeliveryController::class, 'showSubmit'])->name('submit.show');
 Route::post('/submitStore/{id}', [DeliveryController::class, 'storeSubmit'])->name('submit.create');
 Route::get('/delivery/{id}', [DeliveryController::class, 'msgShow'])->name('msg.show');
-//Route::get('/notificationEmp',function (){
-//    return view('pages.employees.notification');
-//});
+
+Route::get('/msgShow/{id}', [DeliveryController::class, 'msgShow'])->name('msg.show');
+
 Route::get('/showNotification', [RateController::class, 'showRating'])->name('showNotification');
 Route::post('/notificationEmp',[RateController::class,'rating'])->name('notification.rate');
 

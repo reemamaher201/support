@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('acceptances', function (Blueprint $table) {
-            $table->text('spare_name')->nullable();
-            $table->string('method_spare')->nullable();
-            $table->timestamp('savingSpare_time')->nullable();
+        Schema::table('support_requests', function (Blueprint $table) {
+            $table->integer('status')->default(0);
+
         });
     }
 
@@ -23,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('acceptances', function (Blueprint $table) {
+        Schema::table('support_requests', function (Blueprint $table) {
             //
         });
     }

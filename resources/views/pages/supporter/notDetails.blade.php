@@ -31,22 +31,19 @@
 
                                 <div class="col-xl mb-4">
                                     <div class="card">
-                                        @php
-                                            $colors = ['bg-gradient-success', 'bg-gradient-warning', 'bg-gradient-danger', 'bg-gradient-info', 'bg-gradient-primary'];
-                                            $randomColor = $colors[rand(0, count($colors) - 1)];
-                                        @endphp
-                                        @isset($notification)
+
+                                        @isset($support)
                                             <div
-                                                class="card-header {{ $randomColor }}">{{ $notification->subject }}</div>
+                                                class="card-header bg-gradient-warning">{{  $support->issue_title }}</div>
                                             <div class="card-body">
                                                 <p><span style="color: #ff004d;"> اسم الموظف :</span>
-                                                    {{ $notification->employee->emp_name }}
+                                                    {{  $support->employee->emp_name }}
                                                 </p>
                                                 <p><span style="color: #ff004d;"> وصف المشكلة :</span>
-                                                    {{ $notification->message }}
+                                                    {{  $support->issue_description }}
                                                 </p>
                                                 <p style="padding:0 900px  0 0; ;margin-bottom: -15px; color: #ff004d;">
-                                                    {{ $notification->created_at->format('H:i:s Y-m-d ') }}</p>
+                                                    {{  $support->created_at->format('H:i:s Y-m-d ') }}</p>
                                             </div>
                                     </div>
                                 </div>
@@ -111,15 +108,15 @@
                                     <div class="form-group">
 
                                         <input type="hidden" class="form-control" id="employee_id"
-                                               value="{{ $notification->employee->emp_id }}" name="employee_id"
+                                               value="{{  $support->employee->emp_id }}" name="employee_id"
                                                required>
                                     </div>
                                     <div class="form-group">
 
-                                        <input type="hidden" class="form-control" id="problem_id"
-                                               value="{{ $notification->id }}" name="problem_id" required>
+                                        <input type="hidden" class="form-control" id="support_id"
+                                               value="{{  $support->id }}" name="support_id" required>
                                     </div>
-                                    <button type="submit" class="btn {{ $randomColor }}">تسليم</button>
+                                    <button type="submit" class="btn bg-gradient-warning">تسليم</button>
                                 </div>
                             </div>
                         </form>
@@ -143,9 +140,9 @@
                         <tbody>
 
                         @foreach ($acceptances as $acceptance)
-                            @if($acceptance->problem_id == $notification->id  )
+                            @if($acceptance->support_id == $support->id  )
                                 <tr>
-                                    <td>{{ $acceptance->problem_id }}</td>
+                                    <td>{{ $acceptance->support_id }}</td>
                                     <td>{{ $acceptance->assigned }}</td>
                                     <td>{{ $acceptance->maintenance_location }}</td>
                                     <td>{{ $acceptance->delivery_time }}</td>

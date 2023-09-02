@@ -82,7 +82,7 @@
                                 <td>{{ $acceptances->spare_name }}</td>
                                 <td>{{ $acceptances->savingSpare_time }}</td>
                                 <td>{{ $acceptances->method_spare }}</td>
-                                <td> <a href="{{ route('submit.show', ['id' => $acceptances->id]) }}" class="btn btn-outline-warning" style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713"
+                                <td> <a href="{{ route('submit.show', ['id' => $acceptances->support_id]) }}" class="btn btn-outline-warning" style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713"
                                         onmouseover="this.style.webkitTextFillColor='white'"
                                         onmouseout="this.style.webkitTextFillColor='black'">
                                         عملية التسليم                                    </a></td>

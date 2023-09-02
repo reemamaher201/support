@@ -17,11 +17,14 @@ return new class extends Migration
             $table->string('recipient_name');
             $table->string('delivery_place');
             $table->timestamp('delivery_time')->nullable();
+            $table->integer('employee_id')->nullable();
+
             $table->timestamps();
 
-            $table->foreign('support_id')->references('id')->on('acceptances')->onDelete('cascade');
+            $table->foreign('support_id')->references('id')->on('support_requests')->onDelete('cascade');
 
         });
+
     }
 
     /**

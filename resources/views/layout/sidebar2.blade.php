@@ -21,7 +21,7 @@
             </a>
         </li>
         <li class="rtl nav-item">
-            <a class="nav-link"  href="{{route('requests')}}" >
+            <a class="nav-link"  href="{{route('requests.blade.php')}}" >
                 <i class="mdi mdi-settings menu-icon"></i>
                 <span class="menu-title">الطلبات المرسلة</span>
 

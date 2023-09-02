@@ -24,6 +24,20 @@ class SupportRequest extends Model
         return $this->belongsTo(User::class, 'employee_id', 'emp_id');
 
     }
+    public function acceptancet()
+    {
 
+        return $this->belongsTo(Acceptance::class, 'support_id', 'id');
 
+    }
+
+    public function employee()
+    {
+        return $this->belongsTo(User::class, 'employee_id', 'emp_id');
+    }
+
+        public function deliveries()
+    {
+        return $this->hasMany(Delivery::class, 'support_id');
+    }
 }

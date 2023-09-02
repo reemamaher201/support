@@ -60,15 +60,9 @@ class SupportController extends Controller
         $supportRequest->attachments = json_encode($attachments);
         $supportRequest->save();
 
-            // إنشاء إشعار
-            $notification = new Notification();
-            $notification->employee_id = Auth::user()->emp_id; // تخزين معرف الموظف
-            $notification->subject = ' طلب صيانة جديد بعنوان:  '. $supportRequest->issue_title .' من المهندس: '.Auth::user()->emp_name;
-            $notification->message = $supportRequest->issue_description ;
-            $notification->save();
 
 
-        return redirect()->route('requests');
+        return redirect()->route('requests.blade.php');
     }
 
     public function edit($id)
@@ -88,7 +82,7 @@ class SupportController extends Controller
             'office_location' => $request->input('office_location'),
         ]);
 
-        return redirect()->route('requests')->with('success', 'تم تحديث البيانات بنجاح');
+        return redirect()->route('requests.blade.php')->with('success', 'تم تحديث البيانات بنجاح');
     }
 
     public function delete($id)
@@ -96,8 +90,48 @@ class SupportController extends Controller
         $request = SupportRequest::findOrFail($id);
         $request->delete();
 
-        return redirect()->route('requests')->with('success', 'تم حذف الطلب بنجاح');
+        return redirect()->route('requests.blade.php')->with('success', 'تم حذف الطلب بنجاح');
     }
 
 
+    public function showSupport(){
+        $supports = SupportRequest::all();
+        return view('pages/supporter/requests', ['supports' => $supports]);
+
+    }
+    public function show($id)
+    {
+        $support = SupportRequest::findOrFail($id);
+        $acceptances = Acceptance::all();
+        return view('pages/supporter/notDetails', compact('support', 'acceptances'));
+    }
+
+    public function showAccepted($id)
+    {
+        $support = SupportRequest::findOrFail($id);
+        $support->status = 1;
+        $support->save();
+
+        return view('pages/supporter/acceptedNotifications', ['support' => $support]);
+    }
+    public function showAcceptedPage()
+    {
+        $n = SupportRequest::all();
+        $acceptedRequests = SupportRequest::where('status', 1)->get();
+        return view('pages/supporter/acceptedNotifications',compact('acceptedRequests','n'));
+    }
+
+    public function showRejected($id)
+    {
+        $support = SupportRequest::findOrFail($id);
+        $support->status = 2;
+        $support->save();
+
+        return view('pages/supporter/rejectedNotifications', ['rejectedRequests' => $support]);
+    }
+    public function showRejectedPage()
+    {
+        $rejectedRequests = SupportRequest::where('status', 2)->get();
+        return view('pages/supporter/rejectedNotifications', ['rejectedRequests' => $rejectedRequests]);
+    }
 }

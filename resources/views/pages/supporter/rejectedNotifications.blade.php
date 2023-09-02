@@ -27,19 +27,19 @@
 
                     <div class="row">
 
-                        @if(isset($rejectedNotifications))
+                        @if(isset($rejectedRequests))
                             <div class="row">
                                 <div class="container">
 
-                                    @foreach($rejectedNotifications as $notification)
+                                    @foreach($rejectedRequests as $rejectedRequest)
 
                                             <div class="col-xl mb-4">
                                                 <div class="card">
                                                     <!-- محتوى البطاقة لكل طلب -->
                                                     <div
-                                                        class="card-header bg-gradient-danger">{{ $notification->subject }}</div>
+                                                        class="card-header bg-gradient-danger">{{ $rejectedRequest->issue_title }}</div>
                                                     <div class="card-body">
-                                                        <p>تم رفض الطلب {{ $notification->id }}</p>
+                                                        <p>تم رفض الطلب {{ $rejectedRequest->id }}</p>
 
 
                                                     </div>

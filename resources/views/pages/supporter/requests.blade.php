@@ -19,33 +19,37 @@
                         <h3 class="page-title">
                                 <span class="page-title-icon bg-gradient-warning text-white me-2">
                                     <i class="mdi mdi-bell"></i>
-                                </span> الطلبات المقبولة
+                                </span> الطلبات الواردة
                         </h3>
+
 
 
                     </div>
 
                     <div class="row">
 
-                        @if(isset($acceptedRequests))
+                        @if(isset($supports))
                             <div class="row">
                                 <div class="container">
 
 
-                                    @foreach($acceptedRequests as $acceptedRequest)
-
-                                        <a style="text-decoration: none; color:#000"
-                                           href="{{ route('notification.show', ['id' => $acceptedRequest->id]) }}">
-                                            <div class="col-xl mb-4">
-                                                <div class="card">
-                                                    <div
-                                                        class="card-header bg-gradient-success">{{$acceptedRequest->issue_title}}</div>
-                                                    <div class="card-body">
-                                                        <p>تم قبول الطلب،<button class="btn bg-gradient-success"> قم باتخاذ الاجراءات الان</button> </p>
+                                    @foreach($supports as $support)
+                                        @if ($support->status != 2 && $support->status != 1 && $support->status != 3)
+                                            <a style="text-decoration: none; color:#000" href="{{ route('notification.show', ['id' => $support->id]) }}">
+                                                <div class="col-xl mb-4">
+                                                    <div class="card">
+                                                        <!-- محتوى البطاقة لكل طلب -->
+                                                        <div class="card-header bg-gradient-warning"> طلب صيانة بعنوان : {{ $support->issue_title }} من : {{$support->employee->emp_id}} </div>
+                                                        <div class="card-body">
+                                                            <p>{{ $support->issue_description }}</p>
+                                                            <!-- زر الرفض -->
+                                                            <a href="{{ route('reject.notification', ['id' => $support->id]) }}" class="btn btn-danger mt-4">رفض</a>
+                                                            <a href="{{ route('accept.notification', ['id' => $support->id]) }}" class="btn btn-success mt-4">قبول</a>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        @endif
                                     @endforeach
 
                                 </div>
@@ -57,15 +61,16 @@
                                     <div class="col-xl mb-4">
                                         <div class="card">
                                             <!-- محتوى البطاقة لكل طلب -->
-                                            <div class="card-header bg-gradient-success "></div>
+                                            <div class="card-header bg-gradient-warning "></div>
                                             <div class="card-body">
-                                                <p>لا يوجد طلبات مقبولة بعد</p>
+                                                <p>لا يوجد طلبات بعد</p>
                                             </div>
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
+
 
                         @endif
                     </div>
