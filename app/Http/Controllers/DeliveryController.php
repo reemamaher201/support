@@ -34,6 +34,7 @@ class DeliveryController extends Controller
         // إنشاء سجل جديد في جدول "delivery"
         $delivery = Delivery::create([
             'support_id' => $acceptance->id,
+            'employee_id'=>$acceptance->employee_id,
             'recipient_name' => $validatedData['recipient_name'],
             'delivery_place' => $validatedData['delivery_place'],
             'delivery_time' => $validatedData['delivery_time'],
@@ -46,15 +47,19 @@ class DeliveryController extends Controller
     }
 
     public function msgShow($id)
+
     {
-        if (Auth::user()->emp_id == $id) {
+        $del = Delivery::find(6);
+
+        if (Auth::user()->emp_id == $del->employee_id) {
 
             $acceptances = Acceptance::find($id);
 
             return view('index', compact('acceptances'));
         }
 
-        return view('s');
+        //return view('index');
+        return redirect()->route('home');
     }
 
 

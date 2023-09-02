@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Delivery extends Model
 {
     use HasFactory;
-    protected $fillable = ['support_id','recipient_name','delivery_place','delivery_time'];
+    protected $fillable = ['support_id','recipient_name','delivery_place','delivery_time','employee_id'];
     public function acceptances()
     {
         return $this->belongsTo(Acceptance::class, 'support_id', 'id');

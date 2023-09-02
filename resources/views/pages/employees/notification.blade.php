@@ -42,7 +42,7 @@
                                 <div class="card-body">
                                     <form action="{{route('notification.rate')}}" method="POST">
                                         @csrf
-                                        <input type="hidden" name="emp_id" value="{{$emp->emp_id}}">
+{{--                                        <input type="hidden" name="emp_id" value="{{$emp->emp_id}}">--}}
                                         <h4 class="card-title d-inline" style="color: #615f5f;margin-left: 20px">
                                             التقييم </h4>
                                         <div class="rating-css d-inline">
@@ -66,8 +66,7 @@
                                         </div>
                                     </form>
 
-                                    <button class="btn" type="submit" style="margin-right: 780px;background: -webkit-gradient(linear, left top, right top, from(#f6e384), to(#ffd500));
-    background: linear-gradient(to right, #f6e384, #ffd500);">تم
+                                    <button class="btn  btn-gradient-warning" type="submit" style="margin-right: 900px;">تم
                                     </button>
                                 </div>
                             </div>

@@ -81,7 +81,7 @@
                                                  alt="circle-image" />
                                             <h4 class="font-weight-normal mb-3">تسليم
                                             </h4>
-                                            <h2 class="mb-5">{{$acceptances}}</h2>
+{{--                                            <h2 class="mb-5">{{$acceptances}}</h2>--}}
 
                                         </div>
                                     </div>
