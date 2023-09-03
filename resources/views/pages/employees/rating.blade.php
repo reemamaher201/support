@@ -24,7 +24,7 @@
                     </div>
 
 
-                    <form action="{{route('submit.rating')}}" method="POST">
+                    <form action="{{route('submit.rating' , ['id'=>$acceptance->id])}}" method="POST">
                         @csrf
                     <div class="card" style="padding: 20px;background-color: #e7e4e4">
 

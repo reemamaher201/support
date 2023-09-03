@@ -10,7 +10,7 @@ class Rates extends Model
     use HasFactory;
 
     protected $table = 'rates';
-    protected $fillable = ['status',
+    protected $fillable = [
         'support_id', 'employee_id', 'emp_support_id','rating','comment'];
 
     public function user()

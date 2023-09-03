@@ -34,7 +34,7 @@
 
 
                                     @foreach($supports as $support)
-                                        @if ($support->status != 2 && $support->status != 1 && $support->status != 3)
+                                        @if ($support->status == 0 )
                                             <a style="text-decoration: none; color:#000" href="{{ route('notification.show', ['id' => $support->id]) }}">
                                                 <div class="col-xl mb-4">
                                                     <div class="card">
@@ -42,9 +42,9 @@
                                                         <div class="card-header bg-gradient-warning"> طلب صيانة بعنوان : {{ $support->issue_title }} من : {{$support->employee->emp_name}} </div>
                                                         <div class="card-body">
                                                             <p>{{ $support->issue_description }}</p>
-                                                            <!-- زر الرفض -->
+
                                                             <a href="{{ route('reject.notification', ['id' => $support->id]) }}" class="btn btn-danger mt-4">رفض</a>
-                                                            <a href="{{ route('accept.notification', ['id' => $support->id]) }}" class="btn btn-success mt-4">قبول</a>
+                                                            <a href="{{ route('accept.show', ['id' => $support->id]) }}" class="btn btn-success mt-4">قبول</a>
                                                         </div>
                                                     </div>
                                                 </div>

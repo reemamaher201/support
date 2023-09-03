@@ -42,7 +42,7 @@
                                                 <p><span style="color: #ff004d;"> وصف المشكلة :</span>
                                                     {{  $support->issue_description }}
                                                 </p>
-                                                <p style="padding:0 900px  0 0; ;margin-bottom: -15px; color: #ff004d;">
+                                                <p style="padding:0 700px  0 0; ;margin-bottom: -15px; color: #ff004d;">
                                                     {{  $support->created_at->format('H:i:s Y-m-d ') }}</p>
                                             </div>
                                     </div>

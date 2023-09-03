@@ -15,19 +15,22 @@ class RateController extends Controller
     public function showRating($id)
 
     {
-        $delivery = Delivery::find($id);
-        $rate = Rates::find($id);
-         $acceptance = Acceptance::find($id);
-         $support = SupportRequest::find($id);
-        return view('pages.employees.rating',compact( 'rate' ,'delivery','acceptance','support'));
+        $delivery = Delivery::findorfail($id);
+
+         $acceptance = Acceptance::findorfail($id);
+         $support = SupportRequest::findorfail($id);
+        return view('pages.employees.rating',compact( 'delivery','acceptance','support'));
     }
 
 
-    public function submitRating(Request $request)
+    public function submitRating(Request $request,$id)
     {
+        $support = SupportRequest::findOrFail($id);
+        $support->status = 4;
+        $support->save();
+
 
         Rates::create([
-            'status'=>$request->input('status'),
             'support_id'=>$request->input('support_id'),
             'emp_support_id'=>$request->input('emp_support_id'),
             'employee_id' =>$request->input('employee_id'),

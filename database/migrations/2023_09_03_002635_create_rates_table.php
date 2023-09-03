@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('emp_support_id');
             $table->integer('rating');
             $table->text('comment')->default('لا يوجد ملاحظات ');
-            $table->integer('status')->default(0);
             $table->timestamps();
 
             $table->foreign('employee_id')->references('emp_id')->on('users')->onDelete('cascade');

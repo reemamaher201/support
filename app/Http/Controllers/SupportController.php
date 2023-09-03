@@ -13,9 +13,6 @@ use Illuminate\Support\Str;
 class SupportController extends Controller
 {
 
-
-
-
     public function showFormRequest()
     {
         return view('pages.employees.maintenanceRequest');
@@ -139,15 +136,16 @@ class SupportController extends Controller
 
     public function showRejected($id)
     {
-        $support = SupportRequest::findOrFail($id);
-        $support->status = 2;
-        $support->save();
-
-        return view('pages/supporter/rejectedNotifications', ['rejectedRequests' => $support]);
+        $supports = SupportRequest::findOrFail($id);
+        $supports->status = 2;
+        $supports->save();
+        $rejectedRequests = SupportRequest::where('status', 2)->get();
+        return view('pages/supporter/rejectedNotifications', compact('supports','rejectedRequests'));
     }
     public function showRejectedPage()
     {
         $rejectedRequests = SupportRequest::where('status', 2)->get();
+        //dd($rejectedRequests);
         return view('pages/supporter/rejectedNotifications', ['rejectedRequests' => $rejectedRequests]);
     }
 }

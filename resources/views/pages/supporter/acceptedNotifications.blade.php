@@ -28,11 +28,12 @@
                     <div class="row">
 
                         @if(isset($acceptedRequests))
+                            @foreach($acceptedRequests as $acceptedRequest)
                             <div class="row">
                                 <div class="container">
 
 
-                                    @foreach($acceptedRequests as $acceptedRequest)
+
 
                                         <a style="text-decoration: none; color:#000"
                                            href="{{ route('notification.show', ['id' => $acceptedRequest->id]) }}">
@@ -46,10 +47,11 @@
                                                 </div>
                                             </div>
                                         </a>
-                                    @endforeach
+
 
                                 </div>
                             </div>
+                            @endforeach
                         @else
                             <div class="row">
                                 <div class="container">
@@ -65,11 +67,12 @@
                                     </div>
 
                                 </div>
-                            </div>
 
-                        @endif
+
+
                     </div>
-
+                        @endif
+                </div>
 
                 </div>
                 <!-- content-wrapper ends -->

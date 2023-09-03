@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Notification;
 use App\Models\Rates;
 use App\Models\SupportRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,11 +29,11 @@ class HomeController extends Controller
     public function index()
     {
 
-
+        $users = User::all();
         $employeeId = Auth::user()->emp_id;
         $supportRequests = SupportRequest::where('employee_id', $employeeId)->get();
 
-            return view('index',compact('supportRequests'));
+            return view('index',compact('supportRequests','users'));
 
     }
 

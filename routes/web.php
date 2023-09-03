@@ -65,7 +65,7 @@ Route::get('/delivery/{id}', [DeliveryController::class, 'msgShow'])->name('msg.
 
 
 Route::get('/showRating/{id}', [RateController::class, 'showRating'])->name('showRating');
-Route::post('/ratingSupport',[RateController::class,'submitRating'])->name('submit.rating');
+Route::post('/ratingSupport/{id}',[RateController::class,'submitRating'])->name('submit.rating');
 
 Route::get('/show_employee_evaluations', [RateController::class,'showEmployeeEvaluations'])->name('show_evaluations');
 
