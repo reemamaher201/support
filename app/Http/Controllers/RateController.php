@@ -7,6 +7,7 @@ use App\Models\Delivery;
 use App\Models\Rates;
 use App\Models\SupportRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class RateController extends Controller
@@ -37,4 +38,10 @@ class RateController extends Controller
         return redirect()->route('home');
     }
 
+    public function showEmployeeEvaluations()
+    {
+        $currentEmployee = Auth::user();
+        $employeeEvaluations = Rates::where('emp_support_id', $currentEmployee->emp_id)->get();
+        return view('pages.supporter.show_evaluations', ['evaluations' => $employeeEvaluations]);
+    }
 }

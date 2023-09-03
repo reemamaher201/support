@@ -22,7 +22,8 @@
 
 
                     </div>
-                    @if($rate->status == 0)
+
+
                     <form action="{{route('submit.rating')}}" method="POST">
                         @csrf
                     <div class="card" style="padding: 20px;background-color: #e7e4e4">
@@ -35,22 +36,22 @@
                             <h5>الإجراء المتخذ</h5>
                             <label class="form-control" style="background: white">{{$acceptance->procedures_token}}</label>
                         </div>
-                        <div class="form-group">
-                            <input  class="form-control" name="support_id" style="background: white" value="{{$delivery->support_id}}">
 
-                        </div>
-                        <div class="form-group">
-                            <input  class="form-control" name="employee_id" style="background: white" value="{{Auth::user()->emp_id}}">
+                            <input type="hidden" class="form-control" name="support_id" style="background: white" value="{{$delivery->support_id}}">
 
-                        </div>
-                        <div class="form-group">
-                            <input  class="form-control" name="employee_id" style="background: white" value="{{Auth::user()->emp_id}}">
 
-                        </div>
 
-                        <div class="form-group">
-                            <input  class="form-control" name="status" style="background: white" value="1">
-                        </div>
+                            <input type="hidden" class="form-control" name="emp_support_id" style="background: white" value="{{$delivery->emp_support_id}}">
+
+
+
+                            <input type="hidden" class="form-control" name="employee_id" style="background: white" value="{{Auth::user()->emp_id}}">
+
+
+
+
+                            <input type="hidden" class="form-control" name="status" style="background: white" value="1">
+
                         <div class="container mt-1">
                             <div class="card p-0">
                                 <div class="card-body">
@@ -77,7 +78,7 @@
                                             <textarea class="form-control" rows="5" style="background: #dedcdc" name="comment"></textarea>
                                         </div>
 
-                                        <button class="btn  btn-gradient-warning" type="submit" style="margin-right: 900px;">تم
+                                        <button class="btn btn-outline-warning" style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713; margin-right: 900px" type="submit" >قييم الان
                                         </button>
 
 
@@ -88,7 +89,7 @@
 
                     </div>
                     </form>
-                    @endif
+
                 </div>
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->

@@ -16,10 +16,12 @@ return new class extends Migration
             $table->unsignedBigInteger('support_id');
             $table->integer('employee_id');
             $table->integer('emp_support_id');
-            $table->decimal('rating', 5, 2);
-            $table->text('comment')->nullable();
+            $table->integer('rating');
+            $table->text('comment')->default('لا يوجد ملاحظات ');
+            $table->integer('status')->default(0);
             $table->timestamps();
 
+            $table->foreign('employee_id')->references('emp_id')->on('users')->onDelete('cascade');
             $table->foreign('support_id')->references('id')->on('deliveries')->onDelete('cascade');
 
         });

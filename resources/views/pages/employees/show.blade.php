@@ -23,6 +23,16 @@
 
                         </div>
                         <div class="row">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form method="GET" action="{{ route('support.search') }}">
+                                        <div class="form-group">
+                                            <input type="text" name="search" class="form-control" placeholder="ابحث هنا">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
                             <table class="table table-bordered mt-3">
                                 <thead class="thead-dark">
                                     <tr>

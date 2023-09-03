@@ -91,7 +91,7 @@
                                                 بعنوان {{ $request->issue_title }}</div>
                                             <div class="card-body">
                                                 <a href="{{ route('showRating', ['id' => $request->id]) }}"
-                                                   class="btn btn-gradient-warning mt-4">تقييم و ملاحظات </a>
+                                                   class="btn btn-outline-warning" style="color: #fed713 ; -webkit-text-fill-color: black ; border-color: #fed713;">تقييم و ملاحظات </a>
                                             </div>
                                         </div>
                                     </div>

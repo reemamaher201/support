@@ -13,6 +13,9 @@ class Rates extends Model
     protected $fillable = ['status',
         'support_id', 'employee_id', 'emp_support_id','rating','comment'];
 
-
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'employee_id', 'emp_id');
+    }
 
 }

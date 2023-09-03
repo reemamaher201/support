@@ -46,4 +46,6 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Structure::class, 'parent_unit', 'unit_id');
     }
+
+
 }

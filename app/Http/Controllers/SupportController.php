@@ -100,6 +100,21 @@ class SupportController extends Controller
         return view('pages/supporter/requests', ['supports' => $supports]);
 
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+
+        // استعلام البحث في قاعدة البيانات
+        $supportRequests = SupportRequest::where('issue_title', 'LIKE', "%$search%")
+            ->orWhere('issue_description', 'LIKE', "%$search%")
+            ->orWhere('requester_name', 'LIKE', "%$search%")
+            ->orWhere('office_location', 'LIKE', "%$search%")
+            ->get();
+
+        return view('pages.employees.show', ['supportRequests' => $supportRequests]);
+    }
+
     public function show($id)
     {
         $support = SupportRequest::findOrFail($id);

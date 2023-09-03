@@ -4,6 +4,7 @@ use App\Http\Controllers\AcceptanceController;
 use App\Http\Controllers\DeliveryController;
 
 use App\Http\Controllers\RateController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SupportController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -45,7 +46,7 @@ Route::get('/reject-support/{id}', [SupportController::class,'showRejected'])->n
 Route::get('/reject-support', [SupportController::class,'showRejectedPage'])->name('reject.show');
 Route::get('/accept-support', [SupportController::class,'showAcceptedPage'])->name('accept.show');
 Route::get('/accept-support/{id}', [SupportController::class,'showAccepted'])->name('accept.notification');
-
+Route::get('/search', [SupportController::class, 'search'])->name('support.search');
 
 
 Route::get('/acceptances/notDetails', [AcceptanceController::class,'notDetails'])->name('acceptances.notDetails');
@@ -65,5 +66,7 @@ Route::get('/delivery/{id}', [DeliveryController::class, 'msgShow'])->name('msg.
 
 Route::get('/showRating/{id}', [RateController::class, 'showRating'])->name('showRating');
 Route::post('/ratingSupport',[RateController::class,'submitRating'])->name('submit.rating');
+
+Route::get('/show_employee_evaluations', [RateController::class,'showEmployeeEvaluations'])->name('show_evaluations');
 
 

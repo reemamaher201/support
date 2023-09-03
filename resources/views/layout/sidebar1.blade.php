@@ -41,5 +41,13 @@
             </a>
         </li>
 
+
+        <li class="rtl nav-item">
+            <a class="nav-link" href="{{route('show_evaluations')}}">
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                <span class="menu-title">تقييماتي</span>
+
+            </a>
+        </li>
     </ul>
 </nav>
